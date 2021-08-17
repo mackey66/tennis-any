@@ -1,4 +1,4 @@
-# hamadera_tennis
+# tennis
 
 ## Project setup
 ```
