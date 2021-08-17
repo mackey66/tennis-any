@@ -46,14 +46,14 @@ library.add(fas)
 
 // Firebase設定
 let firebaseConfig = {
-  apiKey: "AIzaSyDdeAoQiPxbR4Ip_EDNS0Z7P07rgSbAwrk",
-  authDomain: "tennis-any.firebaseapp.com",
-  databaseURL: "https://tennis-any.firebaseio.com", // Firebase Consoleにない！
+  apiKey: "xxx",
+  authDomain: "xxx.firebaseapp.com",
+  databaseURL: "https://xxx.firebaseio.com", // Firebase Consoleにない！
   projectId: "tennis-any",
-  storageBucket: "tennis-any.appspot.com",
-  messagingSenderId: "1094405566473",
-  appId: "1:1094405566473:web:fdf112e9462527a0e4c8d8",
-  measurementId: "G-9HSVFT6YFF"
+  storageBucket: "xxx",
+  messagingSenderId: "xxx",
+  appId: "xxx",
+  measurementId: "xxx"
 };
 
 firebase.initializeApp(firebaseConfig);
