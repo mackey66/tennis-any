@@ -3,6 +3,7 @@
         <h4>{{ $t("Member") }}</h4>
         <button v-if='$store.state.isAdmin' class='btn btn-primary btn_' @click="addMember()">{{ $t("Add") }}</button>
         <div class="row">
+<<<<<<< HEAD
             <div class="col-md-1"></div>
             <div class="col-md-10 sortable-table">
                 <div class="table-responsive">
@@ -96,6 +97,70 @@
                         </tbody>
                     </table>
                 </div>
+=======
+            <div class="col-md-1 col-lg-2"></div>
+            <div class="col-md-10 col-lg-8 sortable-table">
+                <table class="table" id="my-table1">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="width80" data-id="userNo" sortable>No</th>
+                            <th scope="col" class="width120" data-id="kanaSei" sortable>{{ $t("Sort") }}</th>
+                            <th scope="col" class="width100" data-id="displayName">{{ $t("Display name") }}</th>
+                            <th scope="col" class="min-width140" data-id="name">{{ $t("Name") }}</th>
+                            <th scope="col" class="min-width120" data-id="option"></th>
+                            <th scope="col" class="min-width140" data-id="id"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(ramen, key) in ramens" :key="key">
+                            <th>{{ ramen.userNo }}</th>
+                            <td>{{ ramen.kanaSei }}</td>
+                            <td>{{ ramen.displayName }}</td>
+                            <td>{{ ramen.name }}</td>
+                            <td>
+                                <div v-if='ramen.admin' class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" v-model="ramen.admin" disabled>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        {{ $t("Manager") }}
+                                    </label>
+                                </div>
+                                <div v-if='ramen.cooperativeMember' class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" v-model="ramen.cooperativeMember" disabled>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        {{ $t("Cooperative member") }}
+                                    </label>
+                                </div>
+                                <div v-if='ramen.entry' class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" v-model="ramen.entry" disabled>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        {{ $t("entry") }}
+                                    </label>
+                                </div>
+                                <div v-if='ramen.game' class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" v-model="ramen.game" disabled>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        {{ $t("Game") }}
+                                    </label>
+                                </div>
+                                <div v-if='ramen.reserved' class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" v-model="ramen.reserved" disabled>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        {{ $t("Reserved") }}
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <button v-if='$store.state.isAdmin || ramen.userUid == loginUser.uid' class='btn btn-primary btn-sm' @click='editMember(ramen.id)'>
+                                    {{ $t("Edit") }}
+                                </button>
+                                <button v-if='$store.state.isAdmin' class='btn btn-danger btn-sm btn__' @click='deleteMember(ramen.id)'>
+                                    {{ $t("Delete") }}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             </div>         
         </div>
     </div>
@@ -107,11 +172,15 @@
     import firebase from 'firebase'
     import { db } from "../main";
     import Menu from '@/components/Menu.vue'
+<<<<<<< HEAD
     import SortableTable from '@riversun/sortable-table'
     import crypto from 'crypto-js'
     import { format } from 'date-fns'
     import { ja, enUS, zhCN, zhTW, ru, de, fr, nl, es, pt, it, arSA, ko, sr, cs, ro, hr, sv, sk } from 'date-fns/locale'
 
+=======
+    //import SortableTable from '@riversun/sortable-table'
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 
     //var memberRef = db.collection("users");
     /*import Vue from 'vue'
@@ -143,10 +212,14 @@
                 ramens: [],
                 query: this.$route.query,
                 source: this.$store.state.getOption,
+<<<<<<< HEAD
                 sortableTable: null,
                 today: new Date(),
                 format: format,
                 locale: ja,
+=======
+                //sortableTable: null
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         },
         mounted() {
@@ -169,6 +242,7 @@
                 */
             });
             this.setLanguage()
+<<<<<<< HEAD
             
             // table要素を指定する #SortableTable
             this.sortableTable = new SortableTable()
@@ -179,6 +253,20 @@
                     event.colId=${event.colId}
                     event.sortDir=${event.sortDir}
                     event.data=\n${JSON.stringify(event.data)}`);
+=======
+            /*
+            // table要素を指定する #SortableTable
+            this.sortableTable = new SortableTable()
+            this.sortableTable.setTable(document.querySelector('#my-table1'));
+            /// テーブルに表示したいデータを指定する #SortableTable
+            //this.sortableTable.setData(this.ramens);
+            this.sortableTable.events()
+                .on('sort', (event) => {
+                console.log(`[SortableTable#onSort]
+                event.colId=${event.colId}
+                event.sortDir=${event.sortDir}
+                event.data=\n${JSON.stringify(event.data)}`);
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 });
             // set callback function for table cell custom rendering
             this.sortableTable.setCellRenderer((col, row) => {
@@ -191,24 +279,38 @@
                     return '<th></th>';
                 }
                 // cell-is-not-a-header
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 if (typeof colValue !== 'undefined') {
                     if (col.id === 'url') {
                         return `<td><a href="${colValue}" target="_blank">${colValue}</a></td>`;
                     } else if (col.id === 'id') {
                         return  '<td>' +
+<<<<<<< HEAD
                                 `<button class="btn btn-primary btn-sm" onclick="editMember(${colValue})">編集</button>` +  
                                 `<button class="btn btn-danger btn-sm btn_" onclick="deleteMember(${colValue})">削除</button>` +
+=======
+                                `<button class="btn btn-primary btn-sm" @click="editMember(${colValue})">編集</button>` +  
+                                `<button class="btn btn-danger btn-sm btn__" onclick="deleteMember(${colValue})">削除</button>` +
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 '</td>';
                     }
                     return `<td>${colValue}</td>`;
                     }
+<<<<<<< HEAD
                 return '<td></td>';
                 
             });
             
             
             
+=======
+                return '<td></td>';   
+            });
+            */
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             // ユーザー取得
             this.getMember()
         },
@@ -226,8 +328,12 @@
                             const d = doc.data();
                             d.id = doc.id;
                             d.name = doc.data().nameSei + " " + doc.data().nameNa
+<<<<<<< HEAD
                             d.userUid = doc.data().userUid
                             if (!d.guest && !d.resigned) {
+=======
+                            if (!d.guest) {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 array.push(d);
                             }                                          
                         });
@@ -237,6 +343,7 @@
                             if (a.kanaSei > b.kanaSei) return 1;
                             return 0;
                         });
+<<<<<<< HEAD
                         /*
                         // Noでソート（取得時にuserNoでソートしてるので不要）
                         array.sort(function(a,b){
@@ -245,6 +352,8 @@
                             return 0;
                         });
                         */
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         this.ramens = array
                         //this.sortableTable.setData(array);
                         //this.sortableTable.sort('kanaSei', 'asc');
@@ -265,13 +374,20 @@
                                     const d = doc.data();
                                     d.id = doc.id;
                                     d.name = doc.data().nameSei + " " + doc.data().nameNa
+<<<<<<< HEAD
                                     if (!d.guest && !d.resigned) {
+=======
+                                    if (!d.guest) {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                         array.push(d);
                                     }                                          
                                 });
                                 this.ramens = array
+<<<<<<< HEAD
                                 //this.sortableTable.setData(array);
                                 //this.sortableTable.sort('kanaSei', 'asc');
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 console.log("source", this.source)
                             })
                             .catch((error) => {
@@ -288,13 +404,20 @@
                                     const d = doc.data();
                                     d.id = doc.id;
                                     d.name = doc.data().nameSei + " " + doc.data().nameNa
+<<<<<<< HEAD
                                     if (!(d.guest || d.cooperativeMember) && !d.resigned) {
+=======
+                                    if (!(d.guest || d.cooperativeMember)) {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                         array.push(d);
                                     }                                          
                                 });
                                 this.ramens = array
+<<<<<<< HEAD
                                 //this.sortableTable.setData(array);
                                 //this.sortableTable.sort('kanaSei', 'asc');
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 console.log("source", this.source)
                             })
                             .catch((error) => {
@@ -327,6 +450,7 @@
                     return
                 }              
             },
+<<<<<<< HEAD
             loginOpas: function (memberUid) {
                 // メンバーのOPAS IDとパスワードを検索
                 console.log(memberUid)
@@ -445,6 +569,72 @@
                         this.locale = enUS;
                         this.$i18n.locale = "en"
                 }               
+=======
+            setLanguage: function() {
+                const lg = navigator.language
+                //this.$i18n.locale = navigator.language
+                switch (lg) {
+                    case "en-US":
+                        this.$i18n.locale = "en"
+                        break;
+                    case "ja":
+                        this.$i18n.locale = "ja"
+                        break;
+                    case "zh-CN":
+                        this.$i18n.locale = "zhCN"
+                        break;
+                    case "zh-TW":
+                        this.$i18n.locale = "zhTW"
+                        break;
+                    case "ru-RU":
+                        this.$i18n.locale = "ru"
+                        break;
+                    case "de":
+                        this.$i18n.locale = "de"
+                        break;
+                    case "fr":
+                        this.$i18n.locale = "fr"
+                        break;
+                    case "nl":
+                        this.$i18n.locale = "nl"
+                        break;
+                    case "es-ES":
+                        this.$i18n.locale = "es"
+                        break;
+                    case "pt-PT":
+                        this.$i18n.locale = "pt"
+                        break;
+                    case "it-IT":
+                        this.$i18n.locale = "it"
+                        break;
+                    case "ar":
+                        this.$i18n.locale = "ar"
+                        break;
+                    case "ko-KR":
+                        this.$i18n.locale = "ko"
+                        break;
+                    case "sr-RS":
+                        this.$i18n.locale = "sr"
+                        break;
+                    case "cs":
+                        this.$i18n.locale = "cs"
+                        break;
+                    case "ro-RO":
+                        this.$i18n.locale = "ro"
+                        break;
+                    case "hr":
+                        this.$i18n.locale = "hr"
+                        break;
+                    case "sv-SE":
+                        this.$i18n.locale = "sv"
+                        break;
+                    case "sk":
+                        this.$i18n.locale = "sk"
+                        break;
+                    default:
+                        this.$i18n.locale = "en"
+                } 
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         }
     }
@@ -458,7 +648,11 @@
         text-align: left;
     }
     .about {
+<<<<<<< HEAD
         min-width: 376px;
+=======
+        min-width: 690px;
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     }
     .btn_ {
         margin: 10px;
@@ -484,6 +678,7 @@
     .min-width140 {
         min-width: 140px;
     }
+<<<<<<< HEAD
     .danger {
         color: red;
     }
@@ -496,4 +691,6 @@
     .hidden {
         visibility: hidden;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

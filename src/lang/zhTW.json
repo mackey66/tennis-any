@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "不能是空白的",
     "Link" : "關聯",
+<<<<<<< HEAD
     "Please press the link button with your name" : "請與會員鏈接",
+=======
+    "Please link to a member" : "請與會員鏈接",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "如果下面沒有您的姓名，請聯繫您的管理員",
     "I linked to it" : "已鏈接",
     "Time" : "時間",

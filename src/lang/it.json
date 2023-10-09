@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "Non può essere lasciato vuoto",
     "Link" : "Link",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Si prega di collegarsi a un membro",
+=======
+    "Please link to a member" : "Si prega di collegarsi a un membro",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Se non vedi il tuo nome qui sotto, contatta l'amministratore.",
     "I linked to it" : "Ho collegato",
     "Time" : "Tempo",

@@ -1,0 +1,193 @@
+ログイン
+ログアウト
+マイページ
+メニュー
+こんにちは
+さん
+現在21人が参加中です
+エントリー
+ゲーム
+ゲーム中
+Prihlásiť sa
+Odhlásenie
+Moja stránka
+Ponuka
+Dobrý deň,
+Tri
+V súčasnosti je 21 účastníkov
+Záznamy
+Hry
+V hre
+
+終了ゲーム
+予定
+ランキング
+メンバー
+メンテナンス
+テニスコート
+エントリー人数
+予定人数
+設定
+簡易チャット
+Koniec hry
+Plán
+Poradie
+Členovia
+Údržba
+Tenisový kurt
+Počet účastníkov
+Očakávaný počet
+Nastavenie
+Jednoduchý chat
+
+キャッシュを使用しない
+天気
+メッセージ
+選択してください
+登録
+編集
+選択
+変更
+削除
+キャンセル
+Nepoužívajte vyrovnávaciu pamäť
+Počasie
+Správa
+Prosím, vyberte
+Registrácia
+Upraviť
+Vyberte
+Zmena
+Odstrániť
+Zrušiť
+
+追加
+更新
+スコア
+結果
+開始
+中断
+再開
+終了
+退出
+全て退出
+Pridať
+Aktualizácia
+Skóre
+Výsledky
+Štart
+Prerušenie
+Životopis
+Koniec
+Stiahnutie
+Všetky východy
+
+入
+退
+名前
+参加費
+中断でメンバー、スコアが変更できます
+エントリーに上がってこないときは更新してください
+勝
+敗
+試合数
+勝率
+Vstup na stránku
+Exit
+Názov
+Účastnícky poplatok
+Svoje členstvo a skóre môžete zmeniť prerušením
+Ak sa váš záznam nezobrazuje, aktualizujte ho.
+Vyhrajte
+Straty
+Počet hier
+Percento výhier
+
+今月
+前月
+今年
+表示
+Sort
+管理者
+協力会員
+予約
+グループ名
+トップページタイトル
+Tento mesiac
+Predchádzajúci mesiac
+Tento rok
+Zobraziť
+Zoradiť podľa
+Správca
+Spolupracujúci členovia
+Rezervácia
+Názov skupiny
+Názov hornej strany
+
+公式サイト
+公式サイトタイトル
+招待コード
+ユーザデータ
+ユーザが作成
+ユーザを選択
+使用する
+使用しない
+まず最初に行うことは、グループ名と招待コードを設定してメンバーにURL
+と招待コードを伝えることです。次にメンテナンスで最低一つはコートを作成してください。
+Oficiálna stránka
+Oficiálny názov stránky
+Pozývací kód
+Údaje používateľa
+Vytvoril používateľ
+Vyberte používateľa
+Použite
+Nepoužívajte
+Najskôr je potrebné nastaviť názov skupiny, pozývací kód a poskytnúť členom adresu URL.
+a pozývací kód pre svojich členov. Ďalej je potrebné vytvoriť aspoň jeden dvor na údržbu.
+
+招待コードを入力してください
+主催者から聞いているコード
+グループの名前（ナビゲーションバーに表示されます）
+トップページに表示されるタイトル
+公式サイトのURL
+公式サイトのタイトル
+数字やアルファベットなど簡単なものにしてください
+同じコードがあります。違うコードにしてください。
+データが見つかりません。招待コードが間違っていないか確認してください。
+複数のデータがあります。主催者に連絡してください。
+Zadajte prosím svoj pozývací kód
+Kód, ktorý ste si vypočuli od organizátora
+Názov skupiny (zobrazuje sa na navigačnom paneli)
+Názov, ako je uvedený na hornej strane
+URL oficiálnej webovej stránky
+Názov oficiálnej stránky
+Prosím, aby to bolo jednoduché, napríklad čísla alebo písmená.
+Máme rovnaký kód. Prosím, vytvorte iný kód.
+Nemôžem nájsť svoje údaje. Skontrolujte, či je kód pozvánky správny.
+Mám viac ako jeden údaj. Kontaktujte organizátora.
+
+空欄にはできません
+リンク
+メンバーとリンクしてください
+以下にご自分の名前がないときは管理者に連絡してください
+リンクしました
+時間
+人数
+送信
+メッセージを送信してください
+確定
+Nemôže zostať prázdne
+Odkaz na nás
+Prosím, prepojte sa na člena
+Ak svoje meno nevidíte nižšie, obráťte sa na správcu.
+Prepojil som
+Čas
+Počet osôb
+Odoslať
+Pošlite mi prosím správu
+Potvrďte
+
+ゲームを終了します。よろしいですか？
+退出します。よろしいですか？
+Ukončite hru. Je to v poriadku?
+Odídem. Je to v poriadku?

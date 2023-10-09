@@ -91,7 +91,11 @@
     
     "Cannot be left blank." : "Нельзя оставлять пустым",
     "Link" : "Ссылка",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Пожалуйста, дайте ссылку на участника",
+=======
+    "Please link to a member" : "Пожалуйста, дайте ссылку на участника",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Если вы не видите своего имени ниже, пожалуйста, свяжитесь с администратором.",
     "I linked to it" : "Я связал",
     "Time" : "Время",

@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "Får inte lämnas tomt.",
     "Link" : "Länk till oss",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Vänligen länka till en medlem",
+=======
+    "Please link to a member" : "Vänligen länka till en medlem",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Om du inte ser ditt namn nedan kan du kontakta administratören.",
     "I linked to it" : "Jag har länkat till",
     "Time" : "Tid",

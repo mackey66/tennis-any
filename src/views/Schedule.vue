@@ -1,6 +1,7 @@
 <template>
     <div class="schedule"><Menu class="sticky-top"></Menu>  
         <h4>{{ $t("Schedule") }} {{ format(today, 'MMM do (E)', {locale: locale}) }}</h4>
+<<<<<<< HEAD
         
         <div class="row">
             <div class="col-4"></div>
@@ -14,6 +15,14 @@
             <div class="col-4"></div>
         </div>
         <button class='btn btn-primary btn__'  data-toggle="modal" data-target="#demoNormalModal4" @click="setRowId4()">{{ $t("Register") }}</button>
+=======
+        <button class='btn btn-primary btn__'  data-toggle="modal" data-target="#demoNormalModal4" @click="setRowId4()">{{ $t("Register") }}</button>
+        <datepicker 
+            v-model="picked" 
+            :locale="locale"
+            :weekStartsOn=0
+        />
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         <div class="margin"></div>
         <div class="row">
             <div class="col-sm-1 col-md-2 col-lg-3"></div>
@@ -21,14 +30,22 @@
                 <table class="table">
                     <tbody>
                         <tr>
+<<<<<<< HEAD
                             <th class="width120 nowrap">{{ $t("Message") }}</th>
                             <td>{{ dailyMessageText }}</td>
                             <td v-if='$store.state.isAdmin' class="width70">
                                 <button class='btn btn-primary btn-sm nowrap' data-toggle="modal" data-target="#demoNormalModal3" @click="setRowId3(dailyMessage)">
+=======
+                            <th class="width120"><fa icon="sun" />&ensp;{{ $t("Weather") }}</th>
+                            <td>{{ weather }}</td>
+                            <td v-if='$store.state.isAdmin' class="width70">
+                                <button class='btn btn-primary btn-sm ' data-toggle="modal" data-target="#demoNormalModal2" @click="setRowId2(weather)">
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                     {{ $t("Edit") }}
                                 </button>
                             </td>
                         </tr>
+<<<<<<< HEAD
                         <!--<tr>
                             <th class="width120 nowrap">
                                 <div v-if="weatherCode >= 0 && weatherCode < 2"><fa icon="sun" />&ensp;{{ $t("Weather") }}</div>
@@ -45,6 +62,17 @@
                                 </button>
                             </td>
                         </tr>-->
+=======
+                        <tr>
+                            <th class="width120">{{ $t("Message") }}</th>
+                            <td>{{ dailyMessageText }}</td>
+                            <td v-if='$store.state.isAdmin' class="width70">
+                                <button class='btn btn-primary btn-sm' data-toggle="modal" data-target="#demoNormalModal3" @click="setRowId3(dailyMessage)">
+                                    {{ $t("Edit") }}
+                                </button>
+                            </td>
+                        </tr>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </tbody>
                 </table>
             </div>
@@ -52,6 +80,7 @@
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
+<<<<<<< HEAD
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -87,6 +116,41 @@
                         </tbody>
                     </table>
                 </div>
+=======
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="num">#</th>
+                            <th scope="col" class="time">{{ $t("In") }}</th>
+                            <th scope="col" class="time">{{ $t("Out") }}</th>
+                            <th scope="col" class="width100">{{ $t("Name") }}</th>
+                            <th scope="col"></th>
+                            <th scope="col" class="btns"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(ramen, key) in ramens" :key="key">
+                            <th scope="row">{{ key + 1 }}</th>
+                            <td>{{ formatDate(ramen.date.toDate(), 'H:mm') }}</td>
+                            <td><div v-if='ramen.outTime'>{{ formatDate(ramen.outTime.toDate(), 'H:mm') }}</div></td>
+                            <td>{{ ramen.name }}</td>
+                            <td>{{ ramen.message }}</td>
+                            <td>
+                                <div class='btn-toolbar' role="toolbar">
+                                    <div v-if='$store.state.isAdmin || ramen.memberUid==loginMemberUid'>
+                                        <button type="button" class="btn btn-primary btn-sm btn_" data-toggle="modal" data-target="#demoNormalModal" @click="setRowId(ramen.id, ramen.date, ramen.outTime, ramen.message)">
+                                            {{ $t("Edit") }}
+                                        </button>
+                                        <button type="button" class='btn btn-danger btn-sm btn_' @click="deleteSchedule(ramen.id)">
+                                            {{ $t("Edit") }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             </div>  
                    
         </div>
@@ -166,8 +230,12 @@
                         </div>
                     </div>
                     <div class="modal-body">
+<<<<<<< HEAD
     
                         <textarea class="form-control" rows="3" v-model="message" :placeholder='$t("Message")'></textarea>
+=======
+                        <input v-model="message" class='width300' :placeholder='$t("Message")'>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal" @click='editSchedule(rowId, inTime, outTime, message)'>OK</button>
@@ -187,12 +255,20 @@
                         </button>
                     </div>
                     <div class="modal-body">
+<<<<<<< HEAD
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="weather" :placeholder='$t("Weather")'></textarea>
                         <div class='tips'>{{ weatherMessage }}</div>
                     </div>
                     <div class="modal-footer">
                         <button v-if="today.getFullYear() == today0.getFullYear() && today.getMonth() == today0.getMonth() && today.getDate() == today0.getDate()" type="button" class="btn btn-secondary btn_" @click='getWeather()'>{{ $t("Get from Web") }}</button>                      
                         <button type="button" class="btn btn-primary btn_" data-dismiss="modal" @click='editOkWeather(weather)'>OK</button>
+=======
+                        <input v-model="weather" class='width300' :placeholder='$t("Weather")'>
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" @click='editOkWeather(weather)'>OK</button>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
                 </div>
             </div>
@@ -209,9 +285,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
+<<<<<<< HEAD
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="dailyMessageText" :placeholder='$t("Message")'></textarea>
                     </div>
                     <div class="modal-footer">   
+=======
+                        <input v-model="dailyMessageText" class='width300' :placeholder='$t("Message")'>
+                    </div>
+                    <div class="modal-footer">
+                        
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         <button type="button" class="btn btn-primary" data-dismiss="modal" @click='editOkDailyMessage(dailyMessageText)'>OK</button>
                     </div>
                 </div>
@@ -294,7 +377,11 @@
                         <input v-model="outTime" class='input' placeholder="帰る時間">
                     </div>-->
                     <div class="modal-body">
+<<<<<<< HEAD
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="message" :placeholder='$t("Message")'></textarea>
+=======
+                        <input v-model="message" class='width300' :placeholder='$t("Message")'>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal" @click='entrySchedule(inTime, outTime, message)'>OK</button>
@@ -314,7 +401,10 @@
     import Datepicker from 'vue3-datepicker'
     import { format } from 'date-fns'
     import { ja, enUS, zhCN, zhTW, ru, de, fr, nl, es, pt, it, arSA, ko, sr, cs, ro, hr, sv, sk } from 'date-fns/locale'
+<<<<<<< HEAD
     import axios from 'axios';
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     //const deLocale = require('date-fns/locale/ja')
     //import VueTimepicker from 'vue3-timepicker'
     //import 'vue3-timepicker/dist/VueTimepicker.css'
@@ -339,19 +429,26 @@
                 message: null,
                 dailyMessage: null,
                 weather: null,
+<<<<<<< HEAD
                 weathers: [],
                 weatherCode: null,
                 weatherCodes: [],
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 dailyMessageText: null,
                 locale: ja,
                 format: format,
                 loginMemberName: null,
                 loginMemberUid: null,
+<<<<<<< HEAD
                 source: this.$store.state.getOption,
                 res: null,
                 error: null,
                 weatherMessage: null,
                 today0: new Date()
+=======
+                source: this.$store.state.getOption
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         },
         computed: {
@@ -434,7 +531,10 @@
                             this.dailyMessage = d;
                             this.dailyMessageText = d.message;
                             this.weather = d.weather;
+<<<<<<< HEAD
                             this.weatherCode = d.weatherCode;
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         });
                     })
                     .catch((error) => {
@@ -448,9 +548,13 @@
                 this.$router.push({ name: 'memberschedule', params: { id: docid } })
             },
             deleteSchedule: function(docid) {
+<<<<<<< HEAD
                 let result = window.confirm(this.$t("Are you sure you want to delete it?"));
                 if( result ) {
                     db.collection("schedule").doc(docid).delete().then(() => {
+=======
+                db.collection("schedule").doc(docid).delete().then(() => {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     console.log("Document successfully deleted!");
                     // Reload
                     //this.$router.go({path: this.$router.currentRoute.path, force: true})
@@ -460,9 +564,14 @@
                 }).catch((error) => {
                     console.error("Error removing document: ", error);
                 });
+<<<<<<< HEAD
                 }    
             },
             editSchedule: function(docid, in_, out_, msg) {
+=======
+            },
+            editSchedule: function(docid, in_, out_, message_) {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 console.log("in:" + in_);
                 console.log("out:" + out_);
                 //if (in_ || out_) return;
@@ -478,7 +587,11 @@
                 db.collection("schedule").doc(docid).update({
                     date: firebase.firestore.Timestamp.fromDate(new Date(st)),
                     outTime: firebase.firestore.Timestamp.fromDate(new Date(ed)),
+<<<<<<< HEAD
                     message: msg
+=======
+                    message: message_
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 })
                 .then(() => {
                     console.log("Document successfully written!");
@@ -491,7 +604,11 @@
                     console.error("Error writing document: ", error);
                 });              
             },
+<<<<<<< HEAD
             entrySchedule: function(in_, out_, msg) {
+=======
+            entrySchedule: function(in_, out_, message_) {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 console.log("in:" + in_);
                 console.log("out:" + out_);
                 //if (in_ || out_) return;
@@ -510,7 +627,11 @@
                     name: this.loginMemberName,
                     date: firebase.firestore.Timestamp.fromDate(new Date(st)),
                     outTime: firebase.firestore.Timestamp.fromDate(new Date(ed)),
+<<<<<<< HEAD
                     message: msg
+=======
+                    message: message_
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 })
                 .then(() => {
                     console.log("Document successfully written!");
@@ -523,6 +644,7 @@
                     console.error("Error writing document: ", error);
                 });
             },
+<<<<<<< HEAD
             setRowId: function(docid, in_, out_, msg) {
                 this.rowId = docid;
                 this.inTime = in_?this.formatDate(in_.toDate(), 'H'):"";
@@ -535,6 +657,19 @@
             },
             setRowId3: function(msg) {
                 this.dailyMessage = msg;
+=======
+            setRowId: function(docid, in_, out_, message_) {
+                this.rowId = docid;
+                this.inTime = in_?this.formatDate(in_.toDate(), 'H'):"";
+                this.outTime = out_?this.formatDate(out_.toDate(), 'H'):"";
+                this.message = message_;
+            },
+            setRowId2: function(message_) {
+                this.weather = message_;
+            },
+            setRowId3: function(message_) {
+                this.dailyMessage = message_;
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             },
             setRowId4: function() {
                 //
@@ -543,6 +678,7 @@
             },
             editDailyMessage: function() {
             },
+<<<<<<< HEAD
             getWeather: function() {
                 // Open-Meteo
                 let url = "https://api.open-meteo.com/v1/forecast?latitude=" + this.$store.state.latitude + "&longitude=" + this.$store.state.longitude + "&daily=weathercode,temperature_2m_max,temperature_2m_min,uv_index_max,uv_index_clear_sky_max,precipitation_sum,rain_sum,precipitation_probability_max,windspeed_10m_max,winddirection_10m_dominant&current_weather=true&timezone=Asia%2FTokyo";
@@ -659,6 +795,19 @@
                     })
                     .then(() => {
                         console.log("Document successfully written!");
+=======
+            editOkWeather: function(message_) {
+                if (this.dailyMessage) {
+                    db.collection("messages").doc(this.dailyMessage.id).update({
+                        modified: firebase.firestore.Timestamp.fromDate(new Date()),
+                        weather: message_
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!");
+                        // Reload
+                        //this.$router.go({path: this.$router.currentRoute.path, force: true})
+                        this.getSchedule();
+                        //this.getDailyMessage();
                     })
                     .catch((error) => {
                         console.error("Error writing document: ", error);
@@ -668,7 +817,7 @@
                         date: firebase.firestore.Timestamp.fromDate(new Date(this.today)),
                         modified: firebase.firestore.Timestamp.fromDate(new Date()),
                         config: this.$store.state.config,
-                        message: msg,
+                        weather: message_,
                         class: "daily"
                     })
                     .then(() => {
@@ -683,15 +832,65 @@
                     });
                 }
                 //this.getSchedule();
+                this.getDailyMessage();
+            },
+            editOkDailyMessage: function(message_) {
+                if (this.dailyMessage) {
+                    db.collection("messages").doc(this.dailyMessage.id).update({
+                        modified: firebase.firestore.Timestamp.fromDate(new Date()),
+                        message: message_
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!");
+                        // Reload
+                        //this.$router.go({path: this.$router.currentRoute.path, force: true})
+                        this.getSchedule();
+                        //this.getDailyMessage();
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+                } else {
+                    db.collection("messages").doc().set({
+                        date: firebase.firestore.Timestamp.fromDate(new Date(this.today)),
+                        modified: firebase.firestore.Timestamp.fromDate(new Date()),
+                        config: this.$store.state.config,
+<<<<<<< HEAD
+                        message: msg,
+=======
+                        message: message_,
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
+                        class: "daily"
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!");
+                        // Reload
+                        //this.$router.go({path: this.$router.currentRoute.path, force: true})
+                        this.getSchedule();
+                        //this.getDailyMessage();
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+                }
+                //this.getSchedule();
+<<<<<<< HEAD
                 //this.getDailyMessage();
+=======
+                this.getDailyMessage();
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             },
             changeDate: function() {
                 //console.log("changeDate()")
                 this.today = this.picked;
                 this.$router.push({ name: 'schedule', params: { id: this.today } });
+<<<<<<< HEAD
                 this.weathers = [];
                 this.weatherCodes = [];
                 this.weatherCode = -1;
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 this.getSchedule();
                 this.getDailyMessage();
                 /*        
@@ -849,8 +1048,13 @@
                         this.$i18n.locale = "sk"
                         break;
                     default:
+<<<<<<< HEAD
                         this.locale = ja;
                         this.$i18n.locale = "ja"
+=======
+                        this.locale = enUS;
+                        this.$i18n.locale = "en"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 }               
             }
         }
@@ -861,9 +1065,12 @@
     h4 {
         margin-top: 20px;
     }
+<<<<<<< HEAD
     .schedule {
         min-width: 376px;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     .table {
         text-align: left;
     }
@@ -873,6 +1080,12 @@
     .btn__ {
         margin: 10px;
     }
+<<<<<<< HEAD
+=======
+    .schedule {
+        min-width: 460px;
+    }
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     .input {
         min-width: 100px;
     }
@@ -906,6 +1119,7 @@
     .margin {
         margin: 20px;
     }
+<<<<<<< HEAD
     .margin10 {
         margin-left: 10px;
     }
@@ -918,4 +1132,6 @@
         text-align: right;
         font-weight: normal;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

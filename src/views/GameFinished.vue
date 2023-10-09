@@ -2,6 +2,7 @@
     <div class="game"><Menu class="sticky-top"></Menu>
         <div class="container-fluid">  
             <h4>{{ $t("Finished games") }} {{ format(today, 'MMM do (E)', {locale: locale}) }}</h4>
+<<<<<<< HEAD
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-4">
@@ -14,10 +15,23 @@
                 <div class="col-4"></div>
             </div>
             <button class='btn btn-primary btn_' @click="back()">{{ $t("Back") }}</button>
+=======
+            <div class="margin"></div>
+            <datepicker 
+                v-model="picked"
+                :locale="locale"
+                :weekStartsOn=0
+            />
+            <div class="margin"></div>
+            <h6>
+                <router-link :to="{ name: 'game', params: { id: $route.params.id } }">{{ $t("Game") }}</router-link>
+            </h6>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             <div class="margin"></div>
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
+<<<<<<< HEAD
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -114,6 +128,102 @@
                             </tbody>
                         </table>
                     </div>
+=======
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col" class='court'>{{ $t("Court") }}</th>
+                                <th scope="col">{{ $t("Start") }}</th>
+                                <th scope="col">{{ $t("End") }}</th>
+                                <th scope="col" class="width250">{{ $t("Member") }}</th>
+                                <th scope="col" class='court'>{{ $t("Result") }}</th>      
+                                <th scope="col" class="width150"></th>      
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(ramen, key) in ramens" :key="key">
+                                <th scope="row">{{ key + 1 }}</th>
+                                <td>{{ ramen.courtName }}</td>
+                                <td><div v-if='ramen.start'>{{ formatDate(ramen.start.toDate(), 'H:mm') }}</div></td>
+                                <td><div v-if='ramen.end'>{{ formatDate(ramen.end.toDate(), 'H:mm') }}</div></td>
+                                <td>
+                                    <div v-if='ramen.member3Name'>
+                                        <p v-if='ramen.member1Name'>{{ ramen.member1Name }}・</p>
+                                        <p v-if='ramen.member2Name'>{{ ramen.member2Name }}</p>
+                                        −
+                                        <p v-if='ramen.member3Name'>{{ ramen.member3Name }}・</p>
+                                        <p v-if='ramen.member4Name'>{{ ramen.member4Name }}</p>
+                                    </div>
+                                    <div v-else>
+                                        <p v-if='ramen.member1Name'>{{ ramen.member1Name }}</p>
+                                        −
+                                        <p v-if='ramen.member2Name'>{{ ramen.member2Name }}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div v-if='ramen.interruption' class="form-inline">
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto my-1">
+                                                <select class="custom-select mr-sm-1" id="inlineFormCustomSelect"
+                                                    v-model="ramen.score"
+                                                    :disabled="!ramen.start" 
+                                                    @change="updateScore(ramen.id, ramen.score)"
+                                                >
+                                                    <option selected>...</option>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <select class="custom-select mr-sm-1" id="inlineFormCustomSelect"
+                                                    v-model="ramen.opponentScore"
+                                                    :disabled="!ramen.start" 
+                                                    @change="updateOpponentScore(ramen.id, ramen.opponentScore)"
+                                                >
+                                                    <option selected>...</option>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                            <input style="width:80px;" type="text" class="form-control" aria-label="Remarks"
+                                                v-model="ramen.remarks"
+                                                :disabled="!ramen.start" 
+                                                @change="updateRemarks(ramen.id, ramen.remarks)"
+                                            >
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div v-else>
+                                        {{ ramen.score }} - {{ ramen.opponentScore }} {{ ramen.remarks }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <button v-if='today>yesterday && !ramen.interruption' class='btn btn-primary btn-sm' @click="ramen.interruption=true">
+                                        {{ $t("Edit") }}
+                                    </button>
+                                    <button v-if='today>yesterday && ramen.interruption' class='btn btn-primary btn-sm' @click="ramen.interruption=false">
+                                        {{ $t("Confirm") }}
+                                    </button>
+                                    <button v-if='$store.state.isAdmin' class='btn btn-danger btn-sm btn__' @click="deleteGame(ramen.id)">
+                                        {{ $t("Delete") }}
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 </div>         
             </div>
             <hr>
@@ -259,8 +369,12 @@
                 db.collection("gameEntries").doc(docid).delete().then(() => {
                     console.log("Document successfully deleted!");
                     // Reload
+<<<<<<< HEAD
                     //this.$router.go({path: this.$router.currentRoute.path, force: true})
                     this.getGameEntries(this.today)
+=======
+                    this.$router.go({path: this.$router.currentRoute.path, force: true})
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 }).catch((error) => {
                     console.error("Error removing document: ", error);
                 });
@@ -292,6 +406,7 @@
                 });               
             },
             updateScore: function(id, value) {
+<<<<<<< HEAD
                 db.collection("gameEntries").doc(id).update({
                     score: Number(this.toHankaku(value))
                 })
@@ -327,6 +442,39 @@
             back: function() {
                 this.$router.go(-1)
                 //this.$router.push({ name: 'game', params: { id: this.$route.params.id } });
+=======
+                    db.collection("gameEntries").doc(id).update({
+                        score: Number(this.toHankaku(value))
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!(Score)");
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+            },
+            updateOpponentScore: function(id, value) {
+                    db.collection("gameEntries").doc(id).update({
+                        opponentScore: Number(this.toHankaku(value))
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!(Score)");
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+            },
+            updateRemarks: function(id, value) {
+                    db.collection("gameEntries").doc(id).update({
+                        remarks: value
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!(Score)");
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             },
             changeDate: function() {
                 this.today = this.picked;
@@ -456,8 +604,13 @@
                         this.$i18n.locale = "sk"
                         break;
                     default:
+<<<<<<< HEAD
                         this.locale = ja;
                         this.$i18n.locale = "ja"
+=======
+                        this.locale = enUS;
+                        this.$i18n.locale = "en"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 }               
             }
         }
@@ -466,10 +619,14 @@
 
 <style scoped>
     .game {
+<<<<<<< HEAD
         min-width: 376px;
     }
     .nowrap {
         white-space: nowrap;
+=======
+        min-width: 770px;
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     }
     h4 {
         margin-top: 20px;

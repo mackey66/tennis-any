@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "Nemůže být prázdné",
     "Link" : "Odkaz",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Propojte prosím členy",
+=======
+    "Please link to a member" : "Propojte prosím členy",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Pokud níže své jméno nemáte, obraťte se na svého správce",
     "I linked to it" : "Propojeno",
     "Time" : "čas",

@@ -8,10 +8,16 @@
     "people_" : "現在",
     "on board." : "人が参加中です。",
     "Entry" : "エントリー",
+<<<<<<< HEAD
     "Register others" : "他エントリー",
     "entry" : "エントリ",
     "Game" : "ゲーム",
     "in game" : "進行ゲーム",
+=======
+    "entry" : "エントリ",
+    "Game" : "ゲーム",
+    "in game" : "ゲーム中",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 
     "Finished games" : "終了ゲーム",
     "Schedule" : "予定",
@@ -92,8 +98,13 @@
 
     "Cannot be left blank." : "空欄にはできません",
     "Link" : "リンク",
+<<<<<<< HEAD
     "Please press the link button with your name" : "自分の名前のリンクボタンを押してください",
     "If you do not see your name below, please contact the administrator." : "以下に自分の名前がないときは管理者に連絡してください",
+=======
+    "Please link to a member" : "メンバーとリンクしてください",
+    "If you do not see your name below, please contact the administrator." : "以下にご自分の名前がないときは管理者に連絡してください",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "I linked to it" : "リンクしました",
     "Time" : "時間",
     "Number of people" : "人数",
@@ -102,6 +113,7 @@
     "Confirm" : "確定",
 
     "End the confirmed game. Are you sure?" : "ゲームを終了します。よろしいですか？",
+<<<<<<< HEAD
 
     "会員登録" : "会員登録",
     "Suspension" : "一時停止",
@@ -323,4 +335,9 @@
     "wmo:98" : "観測時に砂嵐または砂塵を伴う雷雨 - 観測時に雷雨",
     "wmo:99" : "激しい雷雨、雹を観測"
 
+=======
+    "I'm leaving. May I?" : "退出します。よろしいですか？",
+
+    "会員登録" : "会員登録"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 }

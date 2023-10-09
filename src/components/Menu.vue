@@ -10,6 +10,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" @click="goMenu()"><fa icon="bars" />&ensp;{{ $t("Menu") }}<span class="sr-only">(current)</span></a>
                     </li>
+<<<<<<< HEAD
                     <!--<li class="nav-item">
                         <a class="nav-link" href="#" @click="goAttendance()"><fa icon="clipboard" />&ensp;{{ $t("Entry") }}<span class="sr-only">(current)</span></a>
                     </li>-->
@@ -24,11 +25,30 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" @click="goMyPage()"><fa icon="user-cog" />&ensp;{{ $t("MyPage") }}<span class="sr-only">(current)</span></a>
+=======
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" @click="goAttendance()"><fa icon="clipboard" />&ensp;{{ $t("Entry") }}<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" @click="goGameEntries()"><fa icon="running" />&ensp;{{ $t("Game") }}<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" @click="goRanking()"><fa icon="trophy" />&ensp;{{ $t("Ranking") }}<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" @click="goMember()"><fa icon="address-card" />&ensp;{{ $t("Member") }}<span class="sr-only">(current)</span></a>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </li>
                     <li v-if='admin' class="nav-item">
                         <a class="nav-link" href="#" @click="goMaintenance()"><fa icon="wrench" />&ensp;{{ $t("Maintenance") }}<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
+=======
+                        <a class="nav-link" href="#" @click="goMyPage()"><fa icon="user-cog" />&ensp;{{ $t("MyPage") }}<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         <a class="nav-link" href="#" @click="logout()"><fa icon="sign-out-alt" />&ensp;{{ $t("Logout") }}</a>
                     </li>
                 </ul>
@@ -72,9 +92,13 @@
         methods: {
             logout: function () {
                 // Session Strageをクリア
+<<<<<<< HEAD
                 /*
                 this.$store.commit('setConfig', null)
                 
+=======
+                this.$store.commit('setConfig', null)
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 this.$store.commit('setName', null)
                 this.$store.commit('setTopTitle', null)
                 this.$store.commit('setOfficialUrl', null)
@@ -82,6 +106,7 @@
                 this.$store.commit('setOpas', false)
                 this.$store.commit('setAdmin', false)
                 this.$store.commit('setInvite', false)
+<<<<<<< HEAD
                 this.$store.commit('setMinutesPerSession', false)
                 this.$store.commit('setWeekdayRatesPerHour',false)
                 this.$store.commit('setHolidayRatesPerHour', false)
@@ -90,6 +115,8 @@
                 this.$store.commit('setLongitude', false)
                 */
                 
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 // ログアウト処理
                 firebase.auth().signOut();
             },

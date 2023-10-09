@@ -71,7 +71,10 @@
     import firebase from 'firebase'
     import { db } from "../main";
     import Menu from '@/components/Menu.vue'
+<<<<<<< HEAD
     import { ja, enUS, zhCN, zhTW, ru, de, fr, nl, es, pt, it, arSA, ko, sr, cs, ro, hr, sv, sk } from 'date-fns/locale'
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     //require('firebase/firestore')
 
     //var memberRef = db.collection("users");
@@ -97,11 +100,18 @@
                 this.isLogin = true;
                 this.loginUser = user;
             });
+<<<<<<< HEAD
             this.setLanguage()
             this.getCourt()        
         },
         methods: {
             getCourt: function() {
+=======
+            this.getUser()
+        },
+        methods: {
+            getUser: function() {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 // コート取得
                 db.collection("courts").where("config", "==", this.$store.state.config).orderBy("no")
                     .get(this.soruce)
@@ -129,7 +139,11 @@
                 if (docid == null) {
                     db.collection("courts").doc().set({
                         config: this.$store.state.config,
+<<<<<<< HEAD
                         no: Number(this.no),
+=======
+                        no: this.no,
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         name: this.toHankaku(this.name?this.name:0)
                     })
                     .then(() => {
@@ -142,7 +156,11 @@
                 } else {
                     console.log(this.no);
                     db.collection("courts").doc(docid).update({
+<<<<<<< HEAD
                         no: Number(this.no),
+=======
+                        no: this.no,
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         name: this.toHankaku(this.name?this.name:0)
                     })
                     .then(() => {
@@ -172,6 +190,7 @@
                 return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
                     return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
                 });
+<<<<<<< HEAD
             },
             setLanguage: function() {
                 const lg = navigator.language
@@ -258,6 +277,8 @@
                         this.locale = enUS;
                         this.$i18n.locale = "en"
                 }               
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         }
     }

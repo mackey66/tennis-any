@@ -8,7 +8,11 @@ import createPersistedState from "vuex-persistedstate"
 
 const state = {
   noCache: false,
+<<<<<<< HEAD
   getOption: { source: 'server' },
+=======
+  getOption: { source: 'cache' },
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
   name: "",
   topTitle: "",
   officialUrl: "",
@@ -16,6 +20,7 @@ const state = {
   opas: false,
   config: "",
   invite: false,
+<<<<<<< HEAD
   isAdmin: false,
   minutesPerSession: 0,
   weekdayRatesPerHour: 0,
@@ -27,6 +32,9 @@ const state = {
   lineNo: 1,
   thursdayMeeting: false,
   seaside: false,
+=======
+  isAdmin: false
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 };
 
 
@@ -69,6 +77,7 @@ export default createStore({
     setAdmin(state, value) {
 			state.isAdmin = value;
 		},
+<<<<<<< HEAD
     setMinutesPerSession(state, value) {
 			state.minutesPerSession = value
 		},
@@ -103,6 +112,8 @@ export default createStore({
     setSeaside(state, value) {
 			state.seaside = value
 		},
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
   },
   actions: {
   },

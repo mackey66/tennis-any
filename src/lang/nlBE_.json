@@ -91,11 +91,7 @@
 
     "Cannot be left blank." : "Kan niet leeg worden gelaten",
     "Link" : "Link",
-<<<<<<< HEAD
-    "Please press the link button with your name" : "Link naar een lid",
-=======
     "Please link to a member" : "Link naar een lid",
->>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Als u uw naam hieronder niet ziet, neem dan contact op met de beheerder.",
     "I linked to it" : "Ik heb gelinkt",
     "Time" : "Tijd",

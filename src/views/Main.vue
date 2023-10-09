@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
     <div v-if="!notMember" class='main'><Menu></Menu>
+=======
+    <div class='main'><Menu></Menu>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         <div class="container-fluid">
             <h4>{{ $store.state.topTitle }} {{ format(today, 'MMM do (E)', {locale: locale}) }}</h4>
             <div class="container-fluid">
@@ -8,6 +12,7 @@
                         {{ $t("Hello,") }}{{loginUser.displayName}} {{ $t("さん") }} {{ $t("people_") }} {{ entryNum }} {{ $t("on board.") }}
                 </div>
                 <div class="row">
+<<<<<<< HEAD
                     <div class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
                         <button class='btn btn-primary btn-block fas-user' @click="goCourtDaily()"><fa icon="th-large" />&ensp;{{ $t("Today's Court") }}</button>
@@ -25,25 +30,43 @@
                         <button class='btn btn-primary btn-block' @click="goGameEntries()">
                             <fa icon="running" />&ensp;{{ $t("Game") }}&ensp;<span v-if='gameNum > 0' class="badge bg-danger">{{ gameNum }}</span>&ensp;<span v-if='waitingGameNum > 0' class="badge bg-secondary">{{ waitingGameNum }}</span>
                         </button>
+=======
+                    
+                    <div class="col-sm-2 col-md-3 col-lg-4"></div>
+                    <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
+                        <button class='btn btn-primary btn-block' @click="goAttendance()"><fa icon="clipboard" />&ensp;{{ $t("Entry") }}</button>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
 
                     <div class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
+<<<<<<< HEAD
                         <button class='btn btn-primary btn-block' @click="goFinishedGame()">
                             <fa icon="couch" />&ensp;{{ $t("Finished games") }}&ensp;<span v-if='finishedGameNum > 0' class="badge bg-danger">{{ finishedGameNum }}</span>
                         </button>
+=======
+                        <button class='btn btn-primary btn-block' @click="goGameEntries()"><fa icon="running" />&ensp;{{ $t("Game") }}</button>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
 
                     <div class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
+<<<<<<< HEAD
                         <button class='btn btn-primary btn-block' @click="goMessages()"><fa icon="comment" />&ensp;{{ $t("Messages") }}</button>
+=======
+                        <button class='btn btn-primary btn-block' @click="goFinishedGame()"><fa icon="couch" />&ensp;{{ $t("Finished games") }}</button>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
 
                     <div class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
+<<<<<<< HEAD
                         <button class='btn btn-primary btn-block' @click="goSchedule()">
                             <fa icon="calendar-alt" />&ensp;{{ $t("Schedule") }}&ensp;<span v-if='scheduleNum > 0' class="badge bg-danger">{{ scheduleNum }}</span>
                         </button>
+=======
+                        <button class='btn btn-primary btn-block' @click="goSchedule()"><fa icon="calendar-alt" />&ensp;{{ $t("Schedule") }}</button>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
 
                     <div class="col-sm-2 col-md-3 col-lg-4"></div>
@@ -72,7 +95,11 @@
                     </div>
                     
                     <div class="col-12 menubtn">
+<<<<<<< HEAD
                         <input class="form-check-input" type="checkbox" id="flexCheckChecked" v-model="noCache" @change="changedNocache(noCache)">
+=======
+                        <input class="form-check-input" type="checkbox" id="flexCheckChecked" v-model="noCache">
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         <label class="form-check-label" for="flexCheckChecked">
                             {{ $t("Do not use the cache") }}
                         </label>
@@ -88,6 +115,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
+<<<<<<< HEAD
                                     <th class="width120">{{ $t("Message") }}</th>
                                     <td>{{ dailyMessageText }}</td>
                                 </tr>
@@ -102,6 +130,25 @@
                                     </th>
                                     <td>{{ weather }}</td>
                                 </tr>   
+=======
+                                    <th class="width120"><fa icon="sun" />&ensp;{{ $t("Weather") }}</th>
+                                    <td>{{ weather }}</td>
+                                    <!--<td class="width70">
+                                        <button class='btn btn-primary btn-sm ' @click='editWeather()'>
+                                            編集
+                                        </button>
+                                    </td>-->
+                                </tr>
+                                <tr>
+                                    <th class="width120">{{ $t("Message") }}</th>
+                                    <td>{{ dailyMessageText }}</td>
+                                    <!--<td class="width70">
+                                        <button class='btn btn-primary btn-sm' @click='editDailyMessage()'>
+                                            編集
+                                        </button>
+                                    </td>-->
+                                </tr>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             </tbody>
                         </table>
                     </div>
@@ -143,6 +190,7 @@
                 isLogin: false,
                 loginUser: null,
                 entryNum: null,
+<<<<<<< HEAD
                 scheduleNum: 0,
                 gameNum: 0,
                 finishedGameNum: 0,
@@ -150,11 +198,16 @@
                 today: new Date(),
                 weather: null,
                 weatherCode: null,
+=======
+                today: new Date(),
+                weather: null,
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 dailyMessage: null,
                 dailyMessageText: null,
                 locale: ja,
                 format: format,
                 lastGameDate: new Date(),
+<<<<<<< HEAD
                 configs: false,
                 notMember: true
             };
@@ -188,6 +241,18 @@
                 
                 db.collection("members").where("userUid", "==", this.loginUser.uid)
                     .get(this.source)
+=======
+                configs: false
+            };
+        },
+        mounted() {
+            // ユーザー情報取得
+            firebase.auth().onAuthStateChanged(user => {
+                this.isLogin = true;
+                this.loginUser = user;
+                db.collection("members").where("userUid", "==", this.loginUser.uid)
+                    .get()
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     .then((querySnapshot) => {
                         const array = [];
                         querySnapshot.forEach((doc) => {
@@ -198,29 +263,41 @@
                         });
                         // ユーザデータがなければ招待コード画面に遷移
                         if (array.length == 0) { 
+<<<<<<< HEAD
                             this.notMember = false;
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             this.$router.push(`/invite`);
                             return
                         }
                         // ユーザデータが1つだったら
                         if (array.length == 1) {
                             console.log("config", array[0].config)
+<<<<<<< HEAD
                             this.notMember = false;
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             // ユーザのconfigフィールドがあれば
                             if (array[0].config) {
                                 this.$store.commit('setConfig', array[0].config)
                                 this.$store.commit('setAdmin', array[0].admin)
                                 // configを読んで
                                 var docRef = db.collection("configs").doc(array[0].config);
+<<<<<<< HEAD
                                 docRef.get(this.source).then((doc) => {
                                     if (doc.exists) {
                                         console.log("doc.exists")
+=======
+                                docRef.get().then((doc) => {
+                                    if (doc.exists) {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                         // Storeに値をセット
                                         this.$store.commit('setName', doc.data().name)
                                         this.$store.commit('setTopTitle', doc.data().topTitle)
                                         this.$store.commit('setOfficialUrl', doc.data().officialUrl)
                                         this.$store.commit('setOfficialTitle', doc.data().officialTitle) 
                                         this.$store.commit('setOpas', doc.data().opas)
+<<<<<<< HEAD
                                         this.$store.commit('setMinutesPerSession', doc.data().minutesPerSession)
                                         this.$store.commit('setWeekdayRatesPerHour', doc.data().weekdayRatesPerHour)
                                         this.$store.commit('setHolidayRatesPerHour', doc.data().holidayRatesPerHour)
@@ -231,6 +308,8 @@
                                         this.getEntryNum();
                                         this.getScheduleNum();
                                         this.getGameNum();
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                     } else {
                                         console.log("No such document!", array[0].config);
                                         // 設定データがなければ（正常であればありえない）
@@ -245,22 +324,38 @@
                                 alert("ユーザに設定へのリンクがありません。管理者に連絡してください。");
                                 return;
                             }
+<<<<<<< HEAD
                         } else {
                             console.log("array.length = ", array.length)
                         }
                         // ユーザデータが複数だったら
                         if (array.length > 1) {
                             alert("ユーザデータが複数あります")
+=======
+                        }
+                        // ユーザデータが複数だったら
+                        if (array.length > 1) {
+                            console.log("ユーザデータが複数あります")
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             this.configs = true
                         }
                     })
                     .catch((error) => {
+<<<<<<< HEAD
                         alert("Error getting documents: ", error);
                 });
             });              
             this.getDailyMessage();
             this.setLanguage();
             
+=======
+                        console.log("Error getting documents: ", error);
+                });
+            });           
+            this.getEntryNum();
+            this.getDailyMessage();
+            this.setLanguage();
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         },
         methods: {          
             goAttendance: function() {
@@ -272,6 +367,7 @@
             goFinishedGame: function() {
                 this.getLastGame();
             },
+<<<<<<< HEAD
             goMessages: function() {
                 this.$router.push({ name: 'messages', params: { id: this.today } });
             },
@@ -281,6 +377,11 @@
             goCourtDaily: function() {
                 this.$router.push({ name: 'courtdaily', params: { id: this.today } });
             },
+=======
+            goSchedule: function() {
+                this.$router.push({ name: 'schedule', params: { id: this.today } });
+            },
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             goMember: function() {
                 this.$router.push(`/member?active=1`);
             },
@@ -296,6 +397,7 @@
             goMaintenance: function() {
                 this.$router.push({ name: 'maintenance' });
             },
+<<<<<<< HEAD
             changedNocache: function(item) {
                 if (item) {
                     localStorage.clear();
@@ -305,13 +407,19 @@
                     //console.log("clear store");    
                 }               
             },
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             getLastGame: function() {
                 var d = new Date();
                 var ed = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59);
                 const endDate = firebase.firestore.Timestamp.fromDate(ed);
                 
                 db.collection("gameEntries").where("end", "<=", endDate).orderBy("end", "desc").limit(1)
+<<<<<<< HEAD
                     .get(this.source)
+=======
+                    .get()
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     .then((querySnapshot) => {
                         var d;
                         querySnapshot.forEach((doc) => {
@@ -328,8 +436,13 @@
             },
             getEntryNum: function() {
                 // 参加人数
+<<<<<<< HEAD
                 let d = new Date();
                 let sd = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0);
+=======
+                var d = new Date();
+                var sd = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0);
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 const startDate = firebase.firestore.Timestamp.fromDate(sd);
                 this.entryNum = 0
                 db.collection("entryNum").where("config", "==", this.$store.state.config).where("date", ">=", startDate).orderBy("date", "desc").limit(1)
@@ -344,6 +457,7 @@
                         console.log("Error getting documents: ", error);
                 });
             },
+<<<<<<< HEAD
             getScheduleNum: function() {
                 // 予定人数
                 let d = new Date();
@@ -390,6 +504,8 @@
                         console.log("Error getting documents: ", error);
                 });
             },
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             getDailyMessage: function() {
                 // DailyMessage取得
                 var d = new Date();
@@ -399,7 +515,11 @@
                 const startDate = firebase.firestore.Timestamp.fromDate(sd);
                 const endDate = firebase.firestore.Timestamp.fromDate(ed);
                 db.collection("messages").where("config", "==", this.$store.state.config).where("date", ">=", startDate).where("date", "<=", endDate).where("class", "==", "daily").orderBy("date")
+<<<<<<< HEAD
                     .get(this.source)
+=======
+                    .get()
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     .then((querySnapshot) => {
                         querySnapshot.forEach((doc) => {
                             const d = doc.data();
@@ -407,7 +527,10 @@
                             this.dailyMessage = d;
                             this.dailyMessageText = d.message;
                             this.weather = d.weather;
+<<<<<<< HEAD
                             this.weatherCode = d.weatherCode;
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         });
                     })
                     .catch((error) => {
@@ -419,7 +542,10 @@
                 //console.log("noCache", this.noCache, this.$store.state.noCache)
             },
             setLanguage: function() {
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 const lg = (window.navigator.languages && window.navigator.languages[0]) ||
                     window.navigator.language ||
                     window.navigator.userLanguage ||
@@ -504,11 +630,17 @@
                         this.$i18n.locale = "sk"
                         break;
                     default:
+<<<<<<< HEAD
                         this.locale = ja;
                         this.$i18n.locale = "ja"
                     
                 }
                 
+=======
+                        this.locale = enUS;
+                        this.$i18n.locale = "en"
+                }  
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         }
     }

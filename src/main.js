@@ -1,14 +1,33 @@
+//import '@babel/polyfill'
+//import 'mutationobserver-shim'
+//import Vue from 'vue'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'firebase/firestore'
+<<<<<<< HEAD
 
 // bootstrap-vue読み込み
+=======
+//require('firebase/firestore')
+/*
+import VuejsDialog from 'vuejs-dialog';
+import VuejsDialogMixin from 'vuejs-dialog/dist/vuejs-dialog-mixin.min.js';
+import 'vuejs-dialog/dist/vuejs-dialog.min.css';
+*/
+
+// bootstrap-vue読み込み
+//import './plugins/bootstrap-vue'
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 /* ここから */
 //import BootstrapVue from 'bootstrap-vue' // bootstrap-vue v2.21.2はVue3未対応
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+<<<<<<< HEAD
+=======
+//App.use(BootstrapVue)
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 /* ここまで */
 
 // Firebase読み込み
@@ -26,6 +45,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { createI18n } from 'vue-i18n'
 
+<<<<<<< HEAD
 library.add(fas)
 
 // Firebase設定
@@ -38,10 +58,38 @@ let firebaseConfig = {
   messagingSenderId: "",
   appId: "",
   measurementId: ""
+=======
+//import { createStore } from 'vuex';
+//import createPersistedState from 'vuex-persistedstate';
+
+library.add(fas)
+
+//Vue.config.productionTip = false
+
+// Firebase設定
+let firebaseConfig = {
+  apiKey: "xxx",
+  authDomain: "xxx.firebaseapp.com",
+  databaseURL: "https://xxx.firebaseio.com", // Firebase Consoleにない！
+  projectId: "tennis-any",
+  storageBucket: "xxx",
+  messagingSenderId: "xxx",
+  appId: "xxx",
+  measurementId: "xxx"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 };
 
 firebase.initializeApp(firebaseConfig);
 
+<<<<<<< HEAD
+=======
+/*const store = createStore({
+  modules: modules, 
+  plugins: [createPersistedState({storage: window.sessionStorage})]
+
+})*/
+
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 //const projectAuth = firebase.auth()
 const db = firebase.firestore()
 //const timestamp = firebase.firestore.FieldValue.serverTimestamp
@@ -53,11 +101,17 @@ firebase.firestore().settings({
   cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
 });
 
+<<<<<<< HEAD
 // テストで一時的にキャッシュをクリアしたい場合は以下を有効にする（enablePersistence()の前に行う）
 // Safariやスマホブラウザのログイン時のキャッシュがおかしいので仕方なしに有効に #2023-05-18
 firebase.firestore().clearPersistence()
 
 // キャッシュを有効にする
+=======
+// テストでキャッシュをクリアしたい場合は以下を有効に
+//firebase.firestore().clearPersistence()
+
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 firebase.firestore().enablePersistence({synchronizeTabs:true})
 .catch(function(err) {
   if (err.code == 'failed-precondition') {
@@ -71,7 +125,10 @@ firebase.firestore().enablePersistence({synchronizeTabs:true})
   }
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 const i18n = createI18n({
   locale: 'en',
   messages: {
@@ -98,9 +155,27 @@ const i18n = createI18n({
   }
 });
 
+<<<<<<< HEAD
 var app = createApp(App).use(store).use(router).use(i18n)/*.use(VuejsDialog).use(BootstrapVue)*/ //.mount('#app'); // bootstrap-vue v2.21.2はVue3未対応
 
 app.component('fa', FontAwesomeIcon );
 app.mount('#app');
 
+=======
+
+//createApp(App).use(store).use(router).mount('#app');
+var app = createApp(App).use(store).use(router).use(i18n)/*.use(VuejsDialog).use(BootstrapVue)*/ //.mount('#app'); // bootstrap-vue v2.21.2はVue3未対応
+/*
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
+*/
+app.component('fa', FontAwesomeIcon );
+app.mount('#app');
+
+//export const db = firebase.firestore();
+//export {projectAuth, db, timestamp}
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 export {db}

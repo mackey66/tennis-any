@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "Nu poate fi gol",
     "Link" : "Legătură",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Vă rugăm să faceți legătura cu membrii",
+=======
+    "Please link to a member" : "Vă rugăm să faceți legătura cu membrii",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Dacă nu aveți numele dvs. mai jos, vă rugăm să contactați administratorul",
     "I linked to it" : "Legat",
     "Time" : "timp",

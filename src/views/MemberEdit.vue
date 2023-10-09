@@ -24,6 +24,7 @@
                     <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" v-model="displayName">
                 </div>
                 <div class="input-group mb-3">
+<<<<<<< HEAD
                     <span class="input-group-text" id="inputGroup-sizing-default">{{ $t("Gender") }}</span>
                     <div class="margin"></div>
                     <div class="form-check form-check-inline">
@@ -55,6 +56,11 @@
                         :locale="locale"
                         :weekStartsOn=0
                     />
+=======
+                    <span class="input-group-text">OPAS</span>
+                    <input type="text" aria-label="ID" class="form-control" v-model="opasId">
+                    <input type="text" aria-label="Pass" class="form-control">
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 </div>
                 <div class="row">
                     <div class="col-sm">
@@ -88,6 +94,7 @@
                                 {{ $t("Reserved") }}
                             </label>
                         </div>
+<<<<<<< HEAD
                         <div v-if='$store.state.isAdmin' class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" v-model="check1">
                             <label class="form-check-label" for="flexCheckChecked">
@@ -107,6 +114,8 @@
                             </label>
                         </div>
                         
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
                 </div>                           
             </div>
@@ -129,6 +138,7 @@
     // Firebase読み込み
     import firebase from 'firebase'
     import { db } from "../main";
+<<<<<<< HEAD
     import Datepicker from 'vue3-datepicker'
     import { format } from 'date-fns'
     import crypto from 'crypto-js';
@@ -141,6 +151,11 @@
         components: {
             Datepicker
         },
+=======
+
+    export default {
+        name: 'memberedit',
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         data() {
             return {
                 member: null,
@@ -159,6 +174,7 @@
                 reserved: false,
                 cooperativeMember: false,
                 displayName: null,
+<<<<<<< HEAD
                 opasPass: null,
                 suspension: false,
                 resigned: false,
@@ -184,6 +200,9 @@
             vm: {
                 el: "#app",
                 data: {p: "secret-password", t: "password"},
+=======
+                source: this.$store.state.getOption
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         },
         mounted() {
@@ -213,7 +232,10 @@
             } else {
                 this.getUser()
             }
+<<<<<<< HEAD
             
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         },
         methods: {
             getUser: async function () {
@@ -221,12 +243,17 @@
                 db.collection("members").doc(this.memberUid).get(this.source)
                     .then((doc) => {
                         if (doc.exists) {
+<<<<<<< HEAD
                             console.log("Document data:", doc.data());                         
                             this.member = doc.data();
                             // パスワードを復号する
                             // 注意!:復号化した値を使用する時は、エンコードを忘れずに
                             const decrypted = crypto.AES.decrypt(this.member.opasPass, 'pass');
                             console.log("pass: " + decrypted.toString(crypto.enc.Utf8));
+=======
+                            console.log("Document data:", doc.data());
+                            this.member = doc.data();
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             this.member.id = doc.id;
                             this.userNo = this.member.userNo?this.member.userNo:0;
                             this.nameSei = this.member.nameSei?this.member.nameSei:"";
@@ -239,6 +266,7 @@
                             this.game = this.member.game;
                             this.reserved = this.member.reserved;
                             this.cooperativeMember = this.member.cooperativeMember;
+<<<<<<< HEAD
                             this.opasPass = this.member.opasPass?decrypted.toString(crypto.enc.Utf8):"";
                             //this.opasPass = this.member.opasPass?this.member.opasPass:"";
                             this.suspension = this.member.suspension;
@@ -248,6 +276,9 @@
                             this.displayName = this.member.displayName?this.member.displayName:"";
                             this.gender = this.member.gender?this.member.gender:0;
                             this.check1 = this.member.check1?this.member.check1:0;
+=======
+                            this.displayName = this.member.displayName?this.member.displayName:"";
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         } else {
                             // doc.data() will be undefined in this case
                             console.log("No such document!");
@@ -257,9 +288,12 @@
                     });
             },
             updateMember: function(docid) {
+<<<<<<< HEAD
                 // パスワードは暗号化する
                 const ecrypted = crypto.AES.encrypt(this.opasPass, 'pass');
                 console.log("pass: " + ecrypted.toString());
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 if (docid == null) {
                     db.collection("members").doc().set({
                         config: this.$store.state.config,
@@ -274,6 +308,7 @@
                         game: this.game?this.game:false,
                         reserved: this.reserved?this.reserved:false,
                         cooperativeMember: this.cooperativeMember?this.cooperativeMember:false,
+<<<<<<< HEAD
                         opasPass: this.opasPass?ecrypted.toString():"",
                         //opasPass: this.opasPass?this.opasPass:"",
                         suspension: this.suspension?this.suspension:false,
@@ -282,6 +317,9 @@
                         displayName: this.displayName,
                         gender: this.gender,
                         check1: this.check1,
+=======
+                        displayName: this.displayName
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     })
                     .then(() => {
                         this.$router.go(-1);
@@ -291,7 +329,11 @@
                     });
                 } else {
                     db.collection("members").doc(docid).update({
+<<<<<<< HEAD
                         userNo: Number(this.userNo),
+=======
+                        userNo: this.userNo,
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         nameSei: this.nameSei,
                         nameNa: this.nameNa,
                         kanaSei: this.kanaSei,
@@ -302,6 +344,7 @@
                         game: this.game?this.game:false,
                         reserved: this.reserved?this.reserved:false,
                         cooperativeMember: this.cooperativeMember?this.cooperativeMember:false,
+<<<<<<< HEAD
                         opasPass: this.opasPass?ecrypted.toString():"",
                         //opasPass: this.opasPass?this.opasPass:"",
                         suspension: this.suspension?this.suspension:false,
@@ -310,6 +353,9 @@
                         displayName: this.displayName,
                         gender: this.gender,
                         check1: this.check1,
+=======
+                        displayName: this.displayName
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     })
                     .then(() => {
                         this.$router.go(-1);
@@ -344,6 +390,7 @@
                 return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
                     return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
                 });
+<<<<<<< HEAD
             },
             setLanguage: function() {
                 const lg = navigator.language
@@ -430,6 +477,8 @@
                         this.locale = ja;
                         this.$i18n.locale = "ja"
                 }               
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         }
     }
@@ -445,6 +494,7 @@
     .btn_ {
         margin: 30px 10px 10px 10px;
     }
+<<<<<<< HEAD
     .date {
         text-align: right;
         background-color: white;
@@ -461,4 +511,6 @@
         text-align: right;
         font-weight: normal;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

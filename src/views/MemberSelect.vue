@@ -1,11 +1,16 @@
 <template>
     <div class="about">
         
+<<<<<<< HEAD
         <h4>{{ $t("Please make a selection.") }}</h4>
+=======
+        <h4>選択してください</h4>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         <button class='btn btn-secondary btn_' @click="cancel()">{{ $t("Cancel") }}</button>
         <div class="row">
             <div class="col-sm-2 col-md-3"></div>
             <div class="col-sm-8 col-md-6">
+<<<<<<< HEAD
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -30,6 +35,30 @@
                         </tbody>
                     </table>
                 </div>
+=======
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col"></th>
+                            <th scope="col">{{ $t("Name") }}</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(ramen, key) in ramens" :key="key">
+                            <th scope="row">{{ key + 1 }}</th>
+                            <td>{{ ramen.kanaSei }}</td>
+                            <td>{{ ramen.nameSei }} {{ ramen.nameNa }}</td>
+                            <td>
+                                <button class='btn btn-primary btn-sm' @click='selectMember(ramen.id, ramen.displayName)'>
+                                    {{ $t("Register") }}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             </div>         
         </div>
     </div>    
@@ -184,7 +213,10 @@
     .btn_ {
         margin: 10px;
     }
+<<<<<<< HEAD
     .nowrap {
         white-space: nowrap;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

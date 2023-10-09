@@ -8,7 +8,10 @@
     "people_" : "We Have",
     "on board." : "people on board.",
     "Entry" : "Entry",
+<<<<<<< HEAD
     "Register others" : "Register others",
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "entry" : "entry",
     "Game" : "Game",
     "in game" : "In game",
@@ -84,7 +87,11 @@
     "Multiple data are available. Please contact the organizer." : "Multiple data are available. Please contact the organizer.",
     "Cannot be left blank." : "Cannot be left blank.",
     "Link" : "Link",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Please press the link button with your name",
+=======
+    "Please link to a member" : "Please link to a member",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "If you do not see your name below, please contact the administrator.",
     "I linked to it" : "I linked to it",
     "Time" : "Time",
@@ -93,6 +100,7 @@
     "Please send a message" : "Please send a message",
     "Confirm" : "Decision",
     "End the confirmed game. Are you sure?" : "End the confirmed game. Are you sure?",
+<<<<<<< HEAD
     "会員登録" : "sing up",
 
     "Suspension" : "Suspension",
@@ -312,4 +320,8 @@
     "wmo:98" : "Thunderstorm combined with duststorm or sandstorm at time of observation - thunderstorm at time of observation",
     "wmo:99" : "Thunderstorm, heavy, with hail** at time of observation - thunderstorm at time of observation"
 
+=======
+    "I'm leaving. May I?" : "I'm leaving. May I?",
+    "会員登録" : "sing up"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 }

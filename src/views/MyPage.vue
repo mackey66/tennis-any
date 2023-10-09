@@ -14,23 +14,38 @@
                             {{loginUser.displayName}}
                         </div>
                         <h5 v-if='member'>
+<<<<<<< HEAD
                             {{ member.nameSei }} {{ member.nameNa }}
+=======
+                            {{ member.displayName }}
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         </h5>
                         <div>
                             <img :src='loginUser.photoURL'>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="col-12">
                     <button @click='editMember(memberUid)' class='btn btn-primary mt-3'>{{ $t("Edit") }}</button>
                     <button @click='unlinkMember(memberUid)' class='btn btn-danger mt-3'>{{ $t("Unlink") }}</button>
                     <button v-if='$store.state.opas && opasId' class='btn btn-success mt-3' @click='loginOpas(opasId, opasPass)'><fa icon="sign-in-alt" />&ensp;{{ $t("Login") }}</button>
+=======
+
+                <div class="col-12">
+                    <!--削除ボタン-->
+                    <!--<button
+                        @click='deleteUser'
+                        class='btn btn-primary mt-3'
+                    >ユーザー削除</button>-->
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 </div>
             </div>
             <div class="margin"></div>
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
+<<<<<<< HEAD
                 <div class="table-responsive">
                     <table class="table" id="my-table1">
                         <thead>
@@ -70,6 +85,45 @@
                         </tbody>
                     </table>
                 </div>
+=======
+                <table class="table" id="my-table1">
+                    <thead>
+                        <tr>
+                            <!--<th scope="col" class='width60'>#</th>-->
+                            <th scope="col" class='width120' data-id="date">日付</th>
+                            <th scope="col" class='court' data-id="courtName">コート</th>
+                            <th scope="col" class='width80' data-id="start">開始</th>
+                            <th scope="col" class='width80' data-id="end">終了</th>
+                            <th class='width250' data-id="members">メンバー</th>
+                            <th scope="col" class='width120' data-id="result">結果</th>         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(ramen, key) in ramens" :key="key">
+                            <!--<th scope="row">{{ key + 1 }}</th>-->
+                            <td>{{ ramen.date }}</td>
+                            <td>{{ ramen.courtName }}</td>
+                            <td><div v-if='ramen.start'>{{ ramen.start }}</div></td>
+                            <td><div v-if='ramen.end'>{{ ramen.end }}</div></td>
+                            <td>
+                                <div v-if='ramen.member3Name'>
+                                    <p v-if='ramen.member1Name'>{{ ramen.member1Name }}・</p>
+                                    <p v-if='ramen.member2Name'>{{ ramen.member2Name }}</p>
+                                    −
+                                    <p v-if='ramen.member3Name'>{{ ramen.member3Name }}・</p>
+                                    <p v-if='ramen.member4Name'>{{ ramen.member4Name }}</p>
+                                </div>
+                                <div v-else>
+                                    <p v-if='ramen.member1Name'>{{ ramen.member1Name }}</p>
+                                    −
+                                    <p v-if='ramen.member2Name'>{{ ramen.member2Name }}</p>
+                                </div>
+                            </td>
+                            <td>{{ ramen.score }} - {{ ramen.opponentScore }} {{ ramen.remarks }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             </div> 
             <div class="col-lg-1"></div>        
         </div>
@@ -83,10 +137,15 @@
     import { db } from "../main";
     import Menu from '@/components/Menu.vue'
     import { format } from 'date-fns'
+<<<<<<< HEAD
     //import ja from 'date-fns/locale/ja'
     import crypto from 'crypto-js';
     import SortableTable from '@riversun/sortable-table'
     import { ja, enUS, zhCN, zhTW, ru, de, fr, nl, es, pt, it, arSA, ko, sr, cs, ro, hr, sv, sk } from 'date-fns/locale'
+=======
+    import ja from 'date-fns/locale/ja'
+    import SortableTable from '@riversun/sortable-table'
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 
     export default {
         name: 'Main',
@@ -103,9 +162,13 @@
                 source: this.$store.state.getOption,
                 format: format,
                 locale: ja,
+<<<<<<< HEAD
                 sortableTable: null,
                 opasId: null,
                 opasPass: null
+=======
+                sortableTable: null
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             };
         },
         mounted() {
@@ -122,6 +185,7 @@
                             console.log(doc.id, " => ", doc.data());
                             this.member = doc.data()
                             this.memberUid = doc.id
+<<<<<<< HEAD
                             if (this.member.opasPass) {
                                 const decrypted = crypto.AES.decrypt(this.member.opasPass, 'pass');
                                 this.opasId = this.member.opasId
@@ -130,6 +194,9 @@
                                 //console.log("opasPass: " + this.opasPass);
                             }   
                         });                      
+=======
+                        });
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         this.getGameEntries()
                     })
                     .catch((error) => {
@@ -141,14 +208,21 @@
             this.sortableTable.setTable(document.querySelector('#my-table1'));
             this.sortableTable.events()
                 .on('sort', (event) => {
+<<<<<<< HEAD
                     
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     console.log(`[SortableTable#onSort]
                     event.colId=${event.colId}
                     event.sortDir=${event.sortDir}
                     event.data=\n${JSON.stringify(event.data)}`);
+<<<<<<< HEAD
                     
                 });
             this.setLanguage();
+=======
+                });
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         },
         methods: {
             getGameEntries: function() {
@@ -265,6 +339,7 @@
                         console.log(error);
                     });
             },
+<<<<<<< HEAD
             editMember: function(docid) {
                 //console.log(docid)
                 this.$router.push({ name: 'memberedit', params: { id: docid } })
@@ -293,6 +368,8 @@
                 var url = 'http://133.130.70.244/~ymaki/limited/opas?id=' + id + '&pass=' + pass;
                 window.open(url, '_blank');
             },
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             formatDate: function (date, format) {
                 format = format.replace(/yyyy/g, date.getFullYear());
                 format = format.replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2));
@@ -305,6 +382,7 @@
                 format = format.replace(/ss/g, ('0' + date.getSeconds()).slice(-2));
                 format = format.replace(/SSS/g, ('00' + date.getMilliseconds()).slice(-3));
                 return format;
+<<<<<<< HEAD
             },
             setLanguage: function() {
                 const lg = navigator.language
@@ -391,6 +469,8 @@
                         this.locale = enUS;
                         this.$i18n.locale = "en"
                 }               
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         }
     }
@@ -398,7 +478,11 @@
 
 <style scoped>
     .mypage {
+<<<<<<< HEAD
         min-width: 376px;
+=======
+        min-width: 700px;
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     }   
     .container-fluid {
         margin-top: 20px;
@@ -431,6 +515,7 @@
         text-align: left;
     }
     p {display: inline-block; _display: inline;}
+<<<<<<< HEAD
     .btn {
         margin: 10px;
         white-space:nowrap;
@@ -438,4 +523,6 @@
     .nowrap {
         white-space:nowrap;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

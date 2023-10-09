@@ -83,7 +83,11 @@
     "Multiple data are available. Please contact the organizer." : "有多个数据。 请联系组织者。",
     "Cannot be left blank." : "不能留空",
     "Link" : "链接",
+<<<<<<< HEAD
     "Please press the link button with your name" : "链接到一个成员",
+=======
+    "Please link to a member" : "链接到一个成员",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "如果你在下面没有看到你的名字，请联系管理员。",
     "I linked to it" : "已建立链接",
     "Time" : "时间",

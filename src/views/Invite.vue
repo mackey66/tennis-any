@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+<<<<<<< HEAD
         <div class="row">
             <div class="col-lg-2 col-xl-3"></div>
             <div class="col-lg-8 col-xl-6">
@@ -36,6 +37,28 @@
             </div>
             <div class="col-lg-2 col-xl-3"></div>
         </div>
+=======
+        <div><h4>{{ $t("Please enter your invitation code") }}</h4></div>
+        <div class="margin"></div>
+        <div class="row">
+            <div class="col-sm-1 col-md-2 col-lg-3"></div>
+            <div class="col-sm-10 col-md-8 col-lg-6">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">{{ $t("Invitation Code") }}</span>
+                    <input type="text" aria-label="ID" class="form-control width250" v-bind:class="{ 'is-invalid': hasError }" :placeholder='$t("The code you have heard from the organizer")' v-model="inviteCode">
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                </div>                           
+            </div>
+        </div>
+        <button class='btn btn-secondary btn_' @click="cancel()">
+            {{ $t("Cancel") }}
+        </button>     
+        <button class='btn btn-primary btn_' @click="ok()">
+            OK
+        </button>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     </div>
     
    
@@ -98,7 +121,11 @@
                     return
                 }
                 db.collection("configs").where("inviteCode", "==", this.inviteCode)
+<<<<<<< HEAD
                     .get({source: 'server'})
+=======
+                    .get()
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     .then((querySnapshot) => {
                         const array = [];
                         querySnapshot.forEach((doc) => {
@@ -115,10 +142,13 @@
                         } else {
                             if (array[0].userData == "select") {
                                 // 設定がユーザ選択の場合 
+<<<<<<< HEAD
                                 // 設定をStoreにセット
                                 this.$store.commit('setConfig', array[0].id)
                                 this.$store.commit('setName', array[0].name)
                                 this.$store.commit('setTopTitle', array[0].topTitle)
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 // ユーザリンクに移動
                                 this.$router.push(`/memberLink`);
                             } else {
@@ -143,14 +173,23 @@
                 });              
             },
             cancel: function() {
+<<<<<<< HEAD
                 firebase.auth().signOut();
                 this.$router.go({path: this.$router.currentRoute.path, force: true})
                 //this.$router.push({ name: 'mypage' })
+=======
+                //firebase.auth().signOut();
+                this.$router.push({ name: 'mypage' })
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             },
             getMaxUserNo: async function(arr) {
                 let d;
                 await db.collection("members").where("config", "==", arr.id).orderBy("userNo", "desc").limit(1)
+<<<<<<< HEAD
                     .get({source: 'server'})
+=======
+                    .get()
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     .then((querySnapshot) => {                   
                         querySnapshot.forEach((doc) => {
                             d = doc.data();                                                   
@@ -185,7 +224,11 @@
                 this.$router.push({ name: 'config' });
             },
             organizeConfigs: function(except) {
+<<<<<<< HEAD
                 // configを整理（exceptを除いてユーザが1件もないconfigは削除）
+=======
+                // configを整理（exeptを除いてユーザが1件もないconfigは削除）
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 db.collection("configs")
                     .get()
                     .then((querySnapshot) => {

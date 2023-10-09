@@ -13,8 +13,13 @@
             <!--<button v-if='$store.state.isAdmin' class='btn btn-primary ' @click="getAllMembersAnalysis()">全データ再作成</button>
             <div class="margin"></div>-->
             <div class="row">          
+<<<<<<< HEAD
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
+=======
+                <div class="col-4"></div>
+                <div class="col-4">
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     <div class="input-group" >
                     <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" v-model="period" @change="changedPeriod()">
                         <option selected>...</option>
@@ -30,6 +35,7 @@
             </div>
 
             </div>
+<<<<<<< HEAD
             <div class="margin"></div>             
             <div class="row">
                 <div class="col-lg-1"></div>
@@ -61,6 +67,37 @@
                             </tbody>
                         </table>
                     </div>
+=======
+            <div class="margin"></div>  
+            <div v-if='ramens[0]' class='tips'>{{ $t("Update") }}: {{ formatDate(ramens[0].createdAt.toDate(), 'yyyy-MM-dd H:mm') }}</div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10 sortable-table">
+                    <table class="table" id="my-table1">
+                        <thead>
+                            <tr>
+                                <th scope="col" class='width60' data-id="no">#</th>
+                                <th scope="col" class="width120" data-id="memberName">{{ $t("Name") }}</th>
+                                <th scope="col" data-id="win" sortable>{{ $t("wins") }}</th>
+                                <th scope="col" data-id="loss" sortable>{{ $t("losses") }}</th>
+                                <th scope="col" data-id="numberOfGames" sortable>{{ $t("Number of games") }}</th>
+                                <th scope="col" data-id="winningPer" sortable>{{ $t("Winning percentage") }}</th>
+                                <th scope="col" data-id="score" sortable>{{ $t("Score") }}</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(ramen, key) in ramens" :key="key">
+                                <th scope="row">{{ ramen.no }}</th>
+                                <td>{{ ramen.memberName }}</td>
+                                <td>{{ ramen.win }}</td>
+                                <td>{{ ramen.loss }}</td>
+                                <td>{{ ramen.numberOfGames }}</td>
+                                <td>{{ ramen.winningPer }}</td>
+                                <td>{{ ramen.score }}</td>   
+                            </tr>
+                        </tbody>
+                    </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 </div> 
                 <div class="col-lg-1"></div>      
             </div>
@@ -635,7 +672,11 @@
 
 <style scoped>
     .analysis {
+<<<<<<< HEAD
         min-width: 376px;
+=======
+        min-width: 600px;
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     }   
     .container-fluid {
         margin-top: 20px;
@@ -679,7 +720,10 @@
         text-align: right;
         font-weight: normal;
     }
+<<<<<<< HEAD
     .nowrap {
         white-space: nowrap;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

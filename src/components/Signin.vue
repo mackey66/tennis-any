@@ -60,9 +60,13 @@
                     // facebook認証
                     //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
                     // メール認証
+<<<<<<< HEAD
                     firebase.auth.EmailAuthProvider.PROVIDER_ID,
                     // Google認証
                     firebase.auth.GoogleAuthProvider.PROVIDER_ID
+=======
+                    firebase.auth.EmailAuthProvider.PROVIDER_ID
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 ],
                 // 利用規約へリンク
                 tosUrl: 'https://i-wan.jp/about/',

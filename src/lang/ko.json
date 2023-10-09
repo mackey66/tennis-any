@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "비어 없습니다",
     "Link" : "링크",
+<<<<<<< HEAD
     "Please press the link button with your name" : "멤버와 연결하십시오",
+=======
+    "Please link to a member" : "멤버와 연결하십시오",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "다음에 자신의 이름이없는 경우에는 관리자에게 문의하십시오",
     "I linked to it" : "링크했습니다",
     "Time" : "시간",

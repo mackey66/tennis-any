@@ -4,6 +4,7 @@
             <h4>{{ $t("Entry") }} {{ format(today, 'MMM do (E)', {locale: locale}) }}</h4>
             <!--<button @click='getUser' class='btn btn-primary mt-3'>Get User</button>-->
             <div>{{ $t("people_") }} {{ entryNum }} {{ $t("on board.") }}</div>
+<<<<<<< HEAD
             
             <button v-if='today.getFullYear() === today0.getFullYear() && today.getMonth() === today0.getMonth() && today.getDate() === today0.getDate()' class='btn btn-primary btn_' @click='entryMe(memberUid, member.displayName)'>{{ $t("Entry") }}</button>
             <button v-if='today.getFullYear() === today0.getFullYear() && today.getMonth() === today0.getMonth() && today.getDate() === today0.getDate()' class='btn btn-primary btn_' @click="selectMember()">{{ $t("Register others") }}</button>
@@ -20,10 +21,20 @@
                 </div>
                 <div class="col-sm-2"></div>
             </div>
+=======
+            <button class='btn btn-primary btn_' @click="selectMember()">{{ $t("Entry") }}</button>
+            <button v-if='entryNum > 0' class='btn btn-danger btn_' @click='outAllMember'>{{ $t("All exits") }}</button>
+            <datepicker 
+                v-model="picked" 
+                :locale="locale"
+                :weekStartsOn=0
+            />
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             <div class="margin"></div>
             <div class="row">
                 <div class="col-md-1 col-lg-2"></div>
                 <div class="col-md-10 col-lg-8">
+<<<<<<< HEAD
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -69,6 +80,45 @@
                             </tbody>
                         </table>
                     </div>
+=======
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col" class="width70">{{ $t("In") }}</th>
+                                <th scope="col" class="width70">{{ $t("Out") }}</th>
+                                <th scope="col" class="width120">{{ $t("Name") }}</th>
+                                <th scope="col" class="width80"></th>
+                                <th scope="col" class="width70"></th>
+                                <th scope="col" class="width70"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(ramen, key) in ramens" :key="key">
+                                <th scope="row">{{ key + 1 }}</th>
+                                <td>{{ formatDate(ramen.inTime.toDate(), 'H:mm') }}</td>
+                                <td><div v-if='ramen.outTime'>{{ formatDate(ramen.outTime.toDate(), 'H:mm') }}</div></td>
+                                <td>{{ ramen.name }}</td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" v-model="ramen.payment" @change="updateAttendance(ramen.id, ramen.payment)">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        {{ $t("entry fee") }}
+                                    </label>
+                                </td>
+                                <td>
+                                    <button v-if='!ramen.outTime' class='btn btn-primary btn-sm ' @click="outMember(ramen.id, ramen.memberUid)">
+                                        {{ $t("Exit") }}
+                                    </button>
+                                </td>
+                                <td>
+                                    <button v-if='$store.state.isAdmin' class='btn btn-danger btn-sm btn__' @click="deleteAttendance(ramen.id, ramen.memberUid)">
+                                        {{ $t("Delete") }}
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 </div>  
                     
             </div>
@@ -99,14 +149,21 @@
             return {
                 ramens: [],
                 today: new Date(this.$route.params.id),
+<<<<<<< HEAD
                 today0: new Date(),
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 innerSearchText: new Date(this.$route.params.id),
                 locale: ja,
                 format: format,
                 entryNum: null,
+<<<<<<< HEAD
                 source: this.$store.state.getOption,
                 member: null,
                 memberUid: null
+=======
+                source: this.$store.state.getOption
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         },
         computed: {
@@ -125,6 +182,7 @@
             firebase.auth().onAuthStateChanged(user => {
                 this.isLogin = true;
                 this.loginUser = user;
+<<<<<<< HEAD
                 // メンバー情報取得
                 db.collection("members").where("userUid", "==", this.loginUser.uid)
                     .get()
@@ -140,6 +198,8 @@
                     .catch((error) => {
                         console.log("Error getting documents: ", error);
                 });
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 /*
                 db.collection("members").where("userUid", "==", this.loginUser.uid)
                     .get()
@@ -191,10 +251,16 @@
             selectMember: function () {
                 this.$router.push(`/memberattendance`);
             },
+<<<<<<< HEAD
             outMember: function(docid, uid, name) {
                 let result = true
                 if (name) result = window.confirm(this.$t("I'm leaving. May I ") + name + "?");
                 if (result) {
+=======
+            outMember: function(docid, uid) {
+                let result = window.confirm(this.$t("I'm leaving. May I?"));
+                if( result ) {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     db.collection("attendance").doc(docid).update({
                         outTime: firebase.firestore.Timestamp.fromDate(new Date())
                     })
@@ -227,7 +293,10 @@
                                         //this.$router.go({path: this.$router.currentRoute.path, force: true})
                                         this.getAttendance()
                                         this.getEntryNum()
+<<<<<<< HEAD
                                         return true
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                     })
                                     .catch((error) => {
                                         console.error("Error writing document: ", error);
@@ -245,8 +314,11 @@
                     .catch((error) => {
                         console.error("Error writing document: ", error);
                     });
+<<<<<<< HEAD
                 } else {
                     return false
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 }
             },
             outAllMember: function() {
@@ -321,7 +393,11 @@
             changeDate: function() {
                 this.today = this.picked
                 this.getAttendance()
+<<<<<<< HEAD
                 //this.getAttendanceNum()
+=======
+                this.getAttendanceNum()
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             },
             updateAttendance: function(id, value) {
                 db.collection("attendance").doc(id).update({
@@ -335,7 +411,11 @@
                     });
             },
             deleteAttendance: function(docid, uid) {
+<<<<<<< HEAD
                 this.outMember(docid, uid)
+=======
+                this.outMember(docid, uid);
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 db.collection("attendance").doc(docid).delete().then(() => {
                     console.log("Document successfully deleted!");
                     // Reload
@@ -348,6 +428,7 @@
                     console.error("Error removing document: ", error);
                 });
             },
+<<<<<<< HEAD
             entryMe: function(uid, name) {
                 // エントリー（ログインユーザのエントリー）
                 // 未エントリーをチェック
@@ -436,6 +517,8 @@
                     console.log("Error getting documents: ", error);
                 });               
             },
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             /*getAndSetMember: function (docid) {
                 db.collection("members").doc(docid).update({
                     entry: false
@@ -447,6 +530,7 @@
                     console.error("Error writing document: ", error);
                 });
             },*/
+<<<<<<< HEAD
             outMe: function(uid) {
                 // docidを調べる
                 var d = new Date();
@@ -547,6 +631,11 @@
                 //var d = new Date(this.today);
                 console.log("getEntryNum")
                 var d = new Date();
+=======
+            getEntryNum: function() {
+                // 参加人数(人数記録用Collectionから取得)
+                var d = new Date(this.today);
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 var sd = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0);
                 const startDate = firebase.firestore.Timestamp.fromDate(sd);
                 this.entryNum = 0
@@ -682,8 +771,13 @@
                         this.$i18n.locale = "sk"
                         break;
                     default:
+<<<<<<< HEAD
                         this.locale = ja;
                         this.$i18n.locale = "ja"
+=======
+                        this.locale = enUS;
+                        this.$i18n.locale = "en"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 }               
             }
         }
@@ -692,7 +786,11 @@
 
 <style scoped>
     .attendance {
+<<<<<<< HEAD
         min-width: 376px;
+=======
+        min-width: 500px;
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     }
     h4 {
         margin-top: 20px;
@@ -722,7 +820,10 @@
     .width120 {
         min-width: 120px;
     }
+<<<<<<< HEAD
     .nowrap {
         white-space: nowrap;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

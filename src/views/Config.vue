@@ -43,6 +43,7 @@
                     </div>    
                 </div>
                 <div class="input-group mb-3">
+<<<<<<< HEAD
                     <span class="input-group-text">{{ $t("Minutes per session") }}</span>
                     <input type="text" aria-label="ID" class="form-control" :placeholder='$t("Minutes per session")' v-model="minutesPerSession">
                 </div>
@@ -77,6 +78,8 @@
                     <input type="text" aria-label="ID" class="form-control" :placeholder='$t("Member check name")' v-model="memberCheckName">
                 </div> 
                 <div class="input-group mb-3">
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     <span class="input-group-text">OPAS</span>       
                     <div class="form-check form-check-inline margin-left">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value=true v-model="opas">
@@ -87,9 +90,13 @@
                         <label class="form-check-label" for="inlineRadio4">{{ $t("Do not use") }}</label>
                     </div>    
                 </div>
+<<<<<<< HEAD
                 
                 <div><p v-if='$store.state.invite'>{{ $t("The first thing you need to do is to set up a group name and invitation code and give the members the URL") }}( {{ origin }} ) {{ $t("and the invitation code. Next, you need to create at least one coat in maintenance.") }}</p></div>
                            
+=======
+                <div><p v-if='$store.state.invite'>{{ $t("The first thing you need to do is to set up a group name and invitation code and give the members the URL") }}( {{ origin }} ) {{ $t("and the invitation code. Next, you need to create at least one coat in maintenance.") }}</p></div>                
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             </div>    
         </div>
         
@@ -128,6 +135,7 @@
                 nameHasError: false,
                 nameError: null,
                 inviteCodeHasError: false,
+<<<<<<< HEAD
                 inviteCodeError: null,
                 minutesPerSession: 120,
                 weekdayRatesPerHour: 1050,
@@ -137,6 +145,9 @@
                 longitude: 135.47,
                 memberCheckName: null,
 
+=======
+                inviteCodeError: null
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         },
         mounted() {
@@ -163,7 +174,11 @@
         },
         methods: {
             getConfig: function() {
+<<<<<<< HEAD
                 // 設定を取得
+=======
+                // 設定取得
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 console.log("config", this.$store.state.config)       
                 db.collection("configs").doc(this.$store.state.config).get()
                     .then((doc) => {
@@ -176,6 +191,7 @@
                             this.inviteCode = doc.data().inviteCode?doc.data().inviteCode:"";
                             this.userData = doc.data().userData?doc.data().userData:"create";
                             this.opas = doc.data().opas?doc.data().opas:false;
+<<<<<<< HEAD
                             this.minutesPerSession = doc.data().minutesPerSession?doc.data().minutesPerSession:0;
                             this.weekdayRatesPerHour = doc.data().weekdayRatesPerHour?doc.data().weekdayRatesPerHour:0;
                             this.holidayRatesPerHour = doc.data().holidayRatesPerHour?doc.data().holidayRatesPerHour:0;
@@ -183,6 +199,8 @@
                             this.latitude = doc.data().latitude?doc.data().latitude:0;
                             this.longitude = doc.data().longitude?doc.data().longitude:0;
                             this.memberCheckName = doc.data().memberCheckName?doc.data().memberCheckName:"";
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         } else {
                             // doc.data() will be undefined in this case
                             console.log("No such document!");
@@ -225,6 +243,7 @@
                                 officialTitle: this.officialTitle,
                                 inviteCode: this.toHankaku(this.inviteCode),
                                 userData: this.userData,
+<<<<<<< HEAD
                                 opas: this.toBoolean(this.opas),
                                 minutesPerSession: Number(this.minutesPerSession),
                                 weekdayRatesPerHour: Number(this.weekdayRatesPerHour),
@@ -233,6 +252,9 @@
                                 latitude: Number(this.latitude),
                                 longitude: Number(this.longitude),
                                 memberCheckName: this.memberCheckName,
+=======
+                                opas: this.toBoolean(this.opas)
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             })
                             .then(() => {
                                 // Storeも設定
@@ -241,6 +263,7 @@
                                 this.$store.commit('setOfficialUrl', this.officialUrl)
                                 this.$store.commit('setOfficialTitle', this.officialTitle)
                                 this.$store.commit('setOpas', this.toBoolean(this.opas))
+<<<<<<< HEAD
                                 this.$store.commit('setMinutesPerSession', Number(this.minutesPerSession))
                                 this.$store.commit('setWeekdayRatesPerHour', Number(this.weekdayRatesPerHour))
                                 this.$store.commit('setHolidayRatesPerHour', Number(this.holidayRatesPerHour))
@@ -248,6 +271,8 @@
                                 this.$store.commit('setLatitude', Number(this.latitude))
                                 this.$store.commit('setLongitude', Number(this.longitude))
                                 this.$store.commit('setMemberCheckName', this.memberCheckName)
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 if (this.$store.state.invite && !this.$store.state.inviteSelect) {
                                     // Inviteモードなら管理ユーザ作成
                                     this.createMember()
@@ -298,7 +323,11 @@
             },
             toHankaku: function(str) {              
                 if (!str) return "";
+<<<<<<< HEAD
                 //console.log("str", str);
+=======
+                console.log("str", str);
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
                     return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
                 });
@@ -383,7 +412,11 @@
                         this.$i18n.locale = "sk"
                         break;
                     default:
+<<<<<<< HEAD
                         this.$i18n.locale = "ja"
+=======
+                        this.$i18n.locale = "en"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 } 
             }
         }
@@ -409,10 +442,13 @@
     p {
         text-align:left;
     }
+<<<<<<< HEAD
     .tips {
         margin: 5px;
         font-size: 80%;
         text-align: right;
         font-weight: normal;
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 </style>

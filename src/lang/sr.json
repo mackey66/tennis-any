@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "Не може бити празно",
     "Link" : "Линк",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Молимо вас да се повежете са члановима",
+=======
+    "Please link to a member" : "Молимо вас да се повежете са члановима",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Ако у наставку немате своје име, контактирајте свог администратора",
     "I linked to it" : "Повезано",
     "Time" : "време",

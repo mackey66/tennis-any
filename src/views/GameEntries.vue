@@ -2,6 +2,7 @@
     <div class="game"><Menu class="sticky-top"></Menu>
         <div class="container-fluid">   
             <h4>{{ $t("Game") }} {{ format(today, 'MMM do (E)', {locale: locale}) }}</h4>    
+<<<<<<< HEAD
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-4">
@@ -13,11 +14,20 @@
                 </div>
                 <div class="col-4"></div>
             </div>
+=======
+            <button class='btn btn-primary btn_' @click="selectCourt()">{{ $t("Add") }}</button>
+            <datepicker 
+                v-model="picked"
+                :locale="locale"
+                :weekStartsOn=0
+            />
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             <div class="margin"></div>
             <!--<div class="panel-heading">-->
                 <h6 class="">
                     <a data-toggle="collapse" href="#collapse1" role="button" aria-expanded="true" aria-controls="collapse1">{{ $t("in game") }}</a>
                     <router-link :to="{ name: 'gamefinished', params: { id: $route.params.id } }">{{ $t("Finished games") }}</router-link>
+<<<<<<< HEAD
                     <!--<router-link :to="{ name: 'courtdaily', params: { id: $route.params.id } }">{{ $t("Court") }}</router-link>-->
                 </h6>
             <!--</div>-->
@@ -173,10 +183,18 @@
 
             <div class="table-responsive">
                 <table class="table table-condensed waiting">            
+=======
+                </h6>
+            <!--</div>-->
+            <div class='tips'>{{ $t("Members and scores can be changed by interruption.") }}</div>
+            <div id="collapse1" class="collapse show">
+                <table class="table table-condensed">
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     <thead>
                         <tr>
                             <!--<th class='col court40'>#</th>-->
                             <th class='col court80'>{{ $t("Court") }}</th>
+<<<<<<< HEAD
                             <th class='col court70'></th>
                             <th class='col court70'></th>
                             <th class='col-auto'>{{ $t("Member") }}</th>        
@@ -187,23 +205,49 @@
                         <tr v-for="(ramen, key) in ramens" :key="key">
                             <!--<th v-if='!ramen.start' scope="row">{{ key + 1 }}</th>-->
                             <td v-if='!ramen.start'>
+=======
+                            <th class='col court70'>{{ $t("Start") }}</th>
+                            <th class='col court70'>{{ $t("End") }}</th>
+                            <th class='col-auto'>{{ $t("Member") }}</th>        
+                            <th class='col court250'>{{ $t("Score") }}</th>
+                            <th class='col court70'></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(ramen, key) in ramens" :key="key">
+                            <!--<th v-if='ramen.start' scope="row">{{ key + 1 }}</th>-->
+                            <td v-if='ramen.start'>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 <button v-if='(ramen.courtName != "待ち" && !ramen.start) || ramen.interruption' class='btn btn-info btn-sm' @click="changeCourt(ramen.id)">
                                     {{ ramen.courtName }}
                                 </button>
                                 <button v-if='ramen.courtName == "待ち"' class='btn btn-primary btn-sm' @click="changeCourt(ramen.id)">
                                     {{ ramen.courtName }}
                                 </button>
+<<<<<<< HEAD
                                 <!--<button v-if='!(ramen.courtName == "待ち" || !ramen.start) && !ramen.interruption' class='btn btn-info btn-sm' disabled>
                                     {{ ramen.courtName }}
                                 </button>-->
                             </td>
                             <td v-if='!ramen.start'>
                                 <!--<div v-if='ramen.start'>{{ formatDate(ramen.start.toDate(), 'H:mm') }}</div>-->
+=======
+                                <button v-if='!(ramen.courtName == "待ち" || !ramen.start) && !ramen.interruption' class='btn btn-info btn-sm' disabled>
+                                    {{ ramen.courtName }}
+                                </button>
+                            </td>
+                            <td v-if='ramen.start'>
+                                <div v-if='ramen.start'>{{ formatDate(ramen.start.toDate(), 'H:mm') }}</div>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 <button v-if='ramen.courtName != "待ち" && !ramen.start && ((ramen.member1Name && ramen.member2Name) || list[key]?list[key][1]:false )' class='btn btn-primary btn-sm' @click="startGame(ramen.id, key)">
                                     {{ $t("Start") }}
                                 </button>
                             </td>
+<<<<<<< HEAD
                             <td v-if='!ramen.start'>
+=======
+                            <td v-if='ramen.start'>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 <div v-if='ramen.end'>{{ formatDate(ramen.end.toDate(), 'H:mm') }}</div>
                                 <button v-if='ramen.start && !ramen.end && !ramen.interruption' type="button" class="btn btn-warning btn-sm" @click="interruptGame(ramen.id)">
                                     {{ $t("Suspend") }}
@@ -212,7 +256,11 @@
                                     {{ $t("Resume") }}
                                 </button>
                             </td>
+<<<<<<< HEAD
                             <td v-if='!ramen.start'>
+=======
+                            <td v-if='ramen.start'>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 <!--<button v-if='!ramen.member1Name || !ramen.member2Name || !ramen.member3Name || !ramen.member4Name' class='btn btn-info btn-sm btn__' @click="goSelectMember(ramen.id)">
                                     メンバー
                                 </button>
@@ -229,6 +277,7 @@
                                 </div>
                                 <div v-else>
                                     <draggable
+<<<<<<< HEAD
                                         class="list-group droparea"
                                         :list="list[key]"
                                         :disabled="enabled[key]"
@@ -249,15 +298,85 @@
                                             <div v-else class="drag-item-waiting">
                                                 {{ element.name }}
                                             </div>                    
+=======
+                                        class="list-group"
+                                        :list="list[key]"
+                                        :disabled="enabled[key]"
+                                        group="people"
+                                        @change="changedDistList"                           
+                                        item-key="name"
+                                    >   
+                                        <template #item="{ element }">
+                                            <div v-if='element.guest' class="drag-item-guest">{{ element.name }}</div>
+                                            <div v-else class="drag-item">{{ element.name }}</div>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                         </template>
                                     </draggable>
                                 </div>
                             </td>
+<<<<<<< HEAD
                             <td v-if='!ramen.start'>
                                 <button v-if='!ramen.start && !ramen.end' class='btn btn-danger btn-sm' @click="deleteEntry(ramen.id)">
                                     {{ $t("Delete") }}
                                 </button>
                                 <button v-if='ramen.start && !ramen.end' type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#demoNormalModal" @click="setRowId(ramen.id)">
+=======
+                            <td v-if='ramen.start'>
+                                <div v-if='ramen.interruption' class="form-inline">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-auto my-1">
+                                            <select class="custom-select mr-sm-1" id="inlineFormCustomSelect"
+                                                v-model="ramen.score"
+                                                :disabled="!ramen.start" 
+                                                @change="updateScore(ramen.id, ramen.score)"
+                                            >
+                                                <option selected>...</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-auto my-1">
+                                            <select class="custom-select mr-sm-1" id="inlineFormCustomSelect"
+                                                v-model="ramen.opponentScore"
+                                                :disabled="!ramen.start" 
+                                                @change="updateOpponentScore(ramen.id, ramen.opponentScore)"
+                                            >
+                                                <option selected>...</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-auto my-1">
+                                        <input style="width:80px;" type="text" class="form-control" aria-label="Remarks"
+                                            v-model="ramen.remarks"
+                                            :disabled="!ramen.start" 
+                                            @change="updateRemarks(ramen.id, ramen.remarks)"
+                                        >
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div v-else>
+                                    {{ ramen.score }} - {{ ramen.opponentScore }} {{ ramen.remarks }}
+                                </div>
+                            </td>
+                            <td v-if='ramen.start'>
+                                <button v-if='!ramen.start && !ramen.end' class='btn btn-danger btn-sm' @click="deleteEntry(ramen.id)">
+                                    {{ $t("Delete") }}
+                                </button>
+                                <!--<button v-if='ramen.start && !ramen.end' type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#demoNormalModal" @click="setRowId(ramen.id)">-->
+                                <button v-if='ramen.start && !ramen.end' type="button" class="btn btn-success btn-sm" @click="finishedGame(ramen.id)">
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                     {{ $t("End") }}
                                 </button>
                             </td>
@@ -266,6 +385,7 @@
                 </table>
             </div>
 
+<<<<<<< HEAD
             <div v-if='today>yesterday'>
                 <div class="table-responsive">
                     <table class="table table-condensed entry">
@@ -311,6 +431,131 @@
                         </tbody>
                     </table>
                 </div>
+=======
+            <table class="table table-condensed">                  
+                <thead>
+                    <tr>
+                        <!--<th class='col court40'>#</th>-->
+                        <th class='col court80'>{{ $t("Court") }}</th>
+                        <th class='col court70'></th>
+                        <th class='col court70'></th>
+                        <th class='col-auto'>{{ $t("Member") }}</th>        
+                        <th class='col court70'></th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr v-for="(ramen, key) in ramens" :key="key">
+                        <!--<th v-if='!ramen.start' scope="row">{{ key + 1 }}</th>-->
+                        <td v-if='!ramen.start'>
+                            <button v-if='(ramen.courtName != "待ち" && !ramen.start) || ramen.interruption' class='btn btn-info btn-sm' @click="changeCourt(ramen.id)">
+                                {{ ramen.courtName }}
+                            </button>
+                            <button v-if='ramen.courtName == "待ち"' class='btn btn-primary btn-sm' @click="changeCourt(ramen.id)">
+                                {{ ramen.courtName }}
+                            </button>
+                            <!--<button v-if='!(ramen.courtName == "待ち" || !ramen.start) && !ramen.interruption' class='btn btn-info btn-sm' disabled>
+                                {{ ramen.courtName }}
+                            </button>-->
+                        </td>
+                        <td v-if='!ramen.start'>
+                            <!--<div v-if='ramen.start'>{{ formatDate(ramen.start.toDate(), 'H:mm') }}</div>-->
+                            <button v-if='ramen.courtName != "待ち" && !ramen.start && ((ramen.member1Name && ramen.member2Name) || list[key]?list[key][1]:false )' class='btn btn-primary btn-sm' @click="startGame(ramen.id, key)">
+                                {{ $t("Start") }}
+                            </button>
+                        </td>
+                        <td v-if='!ramen.start'>
+                            <div v-if='ramen.end'>{{ formatDate(ramen.end.toDate(), 'H:mm') }}</div>
+                            <button v-if='ramen.start && !ramen.end && !ramen.interruption' type="button" class="btn btn-warning btn-sm" @click="interruptGame(ramen.id)">
+                                {{ $t("Suspend") }}
+                            </button>
+                            <button v-if='ramen.start && !ramen.end && ramen.interruption' type="button" class="btn btn-primary btn-sm" @click="restartGame(ramen.id)">
+                                {{ $t("Resume") }}
+                            </button>
+                        </td>
+                        <td v-if='!ramen.start'>
+                            <!--<button v-if='!ramen.member1Name || !ramen.member2Name || !ramen.member3Name || !ramen.member4Name' class='btn btn-info btn-sm btn__' @click="goSelectMember(ramen.id)">
+                                メンバー
+                            </button>
+                            <div v-else-if='ramen.start'>
+                            </div>
+                            <button v-else class='btn btn-danger btn-sm btn__' @click="clearMember(ramen.id)">
+                                クリア
+                            </button>-->
+                            <div v-if='today<today0'>
+                                <p v-if='ramen.member1Name'>{{ ramen.member1Name }}&ensp;</p>
+                                <p v-if='ramen.member2Name'>{{ ramen.member2Name }}&ensp;</p>
+                                <p v-if='ramen.member3Name'>{{ ramen.member3Name }}&ensp;</p>
+                                <p v-if='ramen.member4Name'>{{ ramen.member4Name }}</p>
+                            </div>
+                            <div v-else>
+                                <draggable
+                                    class="list-group droparea"
+                                    :list="list[key]"
+                                    :disabled="enabled[key]"
+                                    group="people"
+                                    @change="changedDistList"
+                                    item-key="name"
+                                >   
+                                    <template #item="{ element }">
+                                        <div v-if='element.guest' class="drag-item-waiting-guest">{{ element.name }}</div>
+                                        <div v-else class="drag-item-waiting">{{ element.name }}</div>                    
+                                    </template>
+                                </draggable>
+                            </div>
+                        </td>
+                        <td v-if='!ramen.start'>
+                            <button v-if='!ramen.start && !ramen.end' class='btn btn-danger btn-sm' @click="deleteEntry(ramen.id)">
+                                {{ $t("Delete") }}
+                            </button>
+                            <button v-if='ramen.start && !ramen.end' type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#demoNormalModal" @click="setRowId(ramen.id)">
+                                {{ $t("End") }}
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div v-if='today>yesterday'>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>{{ $t("Entry") }}</th>
+                            <th class='tips'>{{ $t("If it doesn't come up in your entry, please update it.") }}</th>
+                            <th class='col court70 tooltip4'>
+                                <button class='btn btn-secondary btn-sm' @click="refreshEntry()">
+                                    {{ $t("Update") }}
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr v-for="(ramen, key) in ramens" :key="key">-->
+                        <tr>
+                            <td colspan="3">
+                                <draggable 
+                                    class="entry"
+                                    :list="myArray"
+                                    :group="{ name: 'people', pull: pullFunction, put: true }"
+                                    @change="changedSourceList"
+                                    @start="startSourceList"
+                                    @end="endSourceList"
+                                    :move="checkMove"
+                                    item-key="name"
+                                >
+                                    <template #item="{ element }">
+                                        <div v-if='element.guest' class="drag-item-guest" >
+                                            {{ element.name }}
+                                        </div>
+                                        <div v-else class="drag-item" >
+                                            {{ element.name }}
+                                        </div>
+                                    </template>
+                                </draggable>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             </div>
 
             <!-- 結果入力ダイアログ -->
@@ -474,10 +719,13 @@
                                 m2.guest = d.member2Guest;
                                 m3.guest = d.member3Guest;
                                 m4.guest = d.member4Guest;
+<<<<<<< HEAD
                                 m1.gender = d.member1Gender;
                                 m2.gender = d.member2Gender;
                                 m3.gender = d.member3Gender;
                                 m4.gender = d.member4Gender;
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 let result = [];
                                 if (m1.name) result.push(m1);
                                 if (m2.name) result.push(m2);
@@ -526,11 +774,15 @@
                                 member1Guest: false,
                                 member2Guest: false,
                                 member3Guest: false,
+<<<<<<< HEAD
                                 member4Guest: false,
                                 member1Gender: 0,
                                 member2Gender: 0,
                                 member3Gender: 0,
                                 member4Gender: 0
+=======
+                                member4Guest: false
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             })
                             .then(() => {
                                 console.log("Document successfully written!");                  
@@ -590,8 +842,12 @@
                                 docRef.update({
                                     member1Uid: this.list[row][i].id,
                                     member1Name: this.list[row][i].name,
+<<<<<<< HEAD
                                     member1Guest: this.list[row][i].guest?this.list[row][i].guest:"",
                                     member1Gender: this.list[row][i].gender?this.list[row][i].gender:0
+=======
+                                    member1Guest: this.list[row][i].guest?this.list[row][i].guest:""
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 })
                                 .then(() => {
                                     console.log("Document successfully written!");                  
@@ -604,8 +860,12 @@
                                 docRef.update({
                                     member2Uid: this.list[row][i].id,
                                     member2Name: this.list[row][i].name,
+<<<<<<< HEAD
                                     member2Guest: this.list[row][i].guest?this.list[row][i].guest:"",
                                     member2Gender: this.list[row][i].gender?this.list[row][i].gender:0
+=======
+                                    member2Guest: this.list[row][i].guest?this.list[row][i].guest:""
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 })
                                 .then(() => {
                                     console.log("Document successfully written!");                  
@@ -618,8 +878,12 @@
                                 docRef.update({
                                     member3Uid: this.list[row][i].id,
                                     member3Name: this.list[row][i].name,
+<<<<<<< HEAD
                                     member3Guest: this.list[row][i].guest?this.list[row][i].guest:"",
                                     member3Gender: this.list[row][i].gender?this.list[row][i].gender:0
+=======
+                                    member3Guest: this.list[row][i].guest?this.list[row][i].guest:""
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 })
                                 .then(() => {
                                     console.log("Document successfully written!");                  
@@ -632,8 +896,12 @@
                                 docRef.update({
                                     member4Uid: this.list[row][i].id,
                                     member4Name: this.list[row][i].name,
+<<<<<<< HEAD
                                     member4Guest: this.list[row][i].guest?this.list[row][i].guest:"",
                                     member4Gender: this.list[row][i].gender?this.list[row][i].gender:0
+=======
+                                    member4Guest: this.list[row][i].guest?this.list[row][i].guest:""
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 })
                                 .then(() => {
                                     console.log("Document successfully written!");                  
@@ -842,6 +1110,7 @@
                         console.log("Error getting documents: ", error);
                 });
             },
+<<<<<<< HEAD
             updateGameEntryMember: function(docid, index) {
                 // getAndSetGameMember() とほぼ同じ?
                 // メンバーをクリアしてから処理する
@@ -941,6 +1210,10 @@
             },
             /*
             updateAllGameEntryMember: function() {
+=======
+            updateAllGameEntryMember: function() {
+                //console.log("updateAllGameEntryMember")
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 let i = 0;
                 for (let gameEntry of this.ramens) {
                     // メンバーを確実にクリアしてから処理する
@@ -972,7 +1245,11 @@
                         }                      
                         for (let j = 0; j < ln; j++) {
                             if (this.list[i][j]) {
+<<<<<<< HEAD
                                 console.log(this.list[i][j].name, this.list[i][j].id);
+=======
+                                //console.log(this.list[i][j].name, this.list[i][j].id);
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                                 if (j == 0) {
                                     db.collection("gameEntries").doc(gameEntry.id).update({
                                         member1Uid: this.list[i][j].id,
@@ -1021,7 +1298,12 @@
                                     .catch((error) => {
                                         console.error("Error writing document: ", error);
                                     });
+<<<<<<< HEAD
                                 }                             
+=======
+                                }
+                                
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                             }                         
                         }                      
                         i++;
@@ -1031,7 +1313,10 @@
                     });                
                 }
             },
+<<<<<<< HEAD
             */
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             updateScore: function(id, value) {
                     db.collection("gameEntries").doc(id).update({
                         score: Number(this.toHankaku(value))
@@ -1085,8 +1370,11 @@
                 console.log("removed!", evt);
             },
             changedSourceList: function(evt) {
+<<<<<<< HEAD
                 console.log(evt);
                 
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 if (evt.added) {
                     db.collection("members").doc(evt.added.element.id).update({
                         reserved: false
@@ -1098,6 +1386,7 @@
                         console.error("Error writing document: ", error);
                     });
                 }
+<<<<<<< HEAD
                 // 全ゲームエントリーの人を更新（ドラッグ先のIDを取れるようになったのでendXxxListのupdateGameEntryMemberに変更）
                 //this.updateAllGameEntryMember();             
             },
@@ -1131,12 +1420,17 @@
                 
                 // ドラッグ先のDB更新
                 this.updateGameEntryMember(dst.id, toIndex);
+=======
+                // 全ゲームエントリーの人を更新（ドラッグ先のIDを取れないのでこれしかない）
+                this.updateAllGameEntryMember();
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             },
             startSourceList: function(evt) {
                 console.log("start evt", evt)
                 //this.controlOnStart = true
             },
             endSourceList: function(evt) {
+<<<<<<< HEAD
                 // entryからドラッグした場合          
                 const to = evt.to.outerHTML;
                 // entry内の移動時のエラーを回避
@@ -1159,13 +1453,25 @@
             changedDistList: function(evt) {
                 console.log("changedDistList:evt")
                 console.log(evt);
+=======
+                //console.log(evt.from)
+                console.log(evt.to)
+                //console.log(evt)
+            },
+            changedDistList: function(evt) {
+                //console.log(evt);
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 if (evt.added) {
                     // 追加の場合
                     //console.log("add", evt.added.element.displayName, evt.added.element.id);
                     //console.log("index", evt.added.newIndex)
                     //console.log("evt.added.element.guest", evt.added.element.guest);
                     //console.log("changedDisList", evt.added.newIndex)
+<<<<<<< HEAD
                     console.log("changedDistList(added)")
+=======
+                    console.log("chengedDistList(added)")
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     if (evt.added.newIndex > 3) {
                         console.log("over 4!")
                         //this.enabled[0] = true;
@@ -1178,21 +1484,36 @@
                         console.log("Document successfully written!", evt.added.element.name, evt.added.element.id, evt.added.element.guest);
                         // Guestなら元を残す
                         if (evt.added.element.guest) {
+<<<<<<< HEAD
                             //this.myArray.push(evt.added.element)
                             // 戻すのではなくEntryエリアの更新に変更
                             this.refreshEntry();
                         }
                         // 全ゲームエントリーの人を更新（ドラッグ先のIDを取れるようになったのでendXxxListのupdateGameEntryMemberに変更）
                         //this.updateAllGameEntryMember();    
+=======
+                            this.myArray.push(evt.added.element)
+                        }
+                        // 全ゲームエントリーの人を更新（ドラッグ先のIDを取れないのでこれしかない）
+                        this.updateAllGameEntryMember();
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     })
                     .catch((error) => {
                         console.error("Error writing document: ", error);
                     });
                 } else if (evt.moved) {
+<<<<<<< HEAD
                     // 同じエリア内での移動
                     console.log("changedDistList(moved)")
                 }
                 
+=======
+                    // 移動の場合
+                    console.log("chengedDistList(moved)")
+                    // 全ゲームエントリーの人を更新（ドラッグ先のIDを取れないのでこれしかない）
+                    this.updateAllGameEntryMember();
+                }
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             },           
             clearList: function() {
                 let n = this.list.length;
@@ -1425,8 +1746,13 @@
                         this.$i18n.locale = "sk"
                         break;
                     default:
+<<<<<<< HEAD
                         this.locale = ja;
                         this.$i18n.locale = "ja"
+=======
+                        this.locale = enUS;
+                        this.$i18n.locale = "en"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                 }               
             }       
         }
@@ -1435,10 +1761,14 @@
 
 <style scoped>
     .game {
+<<<<<<< HEAD
         min-width: 376px;
     }
     .nowrap {
         white-space: nowrap;
+=======
+        min-width: 820px;
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     }
     .court400 {
         width: 400px;
@@ -1554,6 +1884,7 @@
         background-color: #fafafa;
         /*font-size: 110%*/
     }
+<<<<<<< HEAD
     .drag-item-female {
         display: inline-block;
         margin: 0 10px 10px 0;
@@ -1564,6 +1895,8 @@
         background-color: #fafafa;
         /*font-size: 110%*/
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     .drag-item-guest {
         display: inline-block;
         margin: 0 10px 10px 0;
@@ -1582,6 +1915,7 @@
         background-color: #fafafa;
         /*font-size: 110%*/
     }
+<<<<<<< HEAD
     .drag-item-waiting-female {
         display: inline-block;
         margin: 0 10px 0 0;
@@ -1592,6 +1926,8 @@
         background-color: #fafafa;
         /*font-size: 110%*/
     }
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     .drag-item-waiting-guest {
         display: inline-block;
         margin: 0 10px 0 0;
@@ -1617,8 +1953,12 @@
         font-size: 80%;
         text-align: right;
         font-weight: normal;
+<<<<<<< HEAD
     }
     .droparea {
+=======
+    }.droparea {
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         min-height: 48px;
         border-radius: 10px;
         background-color: #f2f2f3;

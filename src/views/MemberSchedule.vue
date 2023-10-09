@@ -1,7 +1,11 @@
 <template>
     <div class="about">
         
+<<<<<<< HEAD
         <h4>{{ $t("Please make a selection.") }}</h4>
+=======
+        <h4>選択してください</h4>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         <button class='btn btn-secondary btn_' @click="cancel()">{{ $t("Cancel") }}</button>
         <div class="row">
             <div class="col-sm-2 col-md-3"></div>
@@ -36,7 +40,11 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
+<<<<<<< HEAD
                         <h5 class="modal-title" id="demoModalTitle">{{ $t("Register") }}</h5>
+=======
+                        <h5 class="modal-title" id="demoModalTitle">登録</h5>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

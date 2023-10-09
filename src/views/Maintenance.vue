@@ -6,6 +6,7 @@
                 <div class="row">
                     <div class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
+<<<<<<< HEAD
                         <button class='btn btn-primary btn-block' @click="goMember()"><fa icon="address-card" />&ensp;{{ $t("Member") }}</button>
                     </div>
 
@@ -22,6 +23,14 @@
                     <div v-if='$store.state.isAdmin' class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div v-if='$store.state.isAdmin' class="col-sm-8 col-md-6 col-lg-4 menubtn">
                         <button class='btn btn-primary btn-block' @click="goIndividual()"><fa icon="male" />&ensp;{{ $t("Individual Amount") }}</button>
+=======
+                        <button class='btn btn-primary btn-block' @click="goCourt()"><fa icon="th" />&ensp;{{ $t("Court") }}</button>
+                    </div>
+
+                    <div class="col-sm-2 col-md-3 col-lg-4"></div>
+                    <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
+                        <button class='btn btn-primary btn-block' @click="goMember()"><fa icon="address-card" />&ensp;{{ $t("Member") }}</button>
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     </div>
                     
                     <div class="col-sm-2 col-md-3 col-lg-4"></div>
@@ -34,6 +43,7 @@
                         <button class='btn btn-primary btn-block' @click="goAnalysisSchedule()"><fa icon="chart-bar" />&ensp;{{ $t("Estimated number of people") }}</button>
                     </div>
 
+<<<<<<< HEAD
                     <div v-if='$store.state.isAdmin' class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div v-if='$store.state.isAdmin' class="col-sm-8 col-md-6 col-lg-4 menubtn">
                         <button class='btn btn-primary btn-block' @click="goCourt()"><fa icon="th-large" />&ensp;{{ $t("Court") }}</button>
@@ -44,6 +54,18 @@
                         <button class='btn btn-primary btn-block' @click="goChat()"><fa icon="comments" />&ensp;{{ $t("Chat") }}</button>
                     </div>
 
+=======
+                    <div class="col-sm-2 col-md-3 col-lg-4"></div>
+                    <div class="col-sm-8 col-md-6 col-lg-4 menubtn">
+                        <button class='btn btn-primary btn-block' @click="goChat()"><fa icon="comment" />&ensp;{{ $t("Chat") }}</button>
+                    </div>
+
+                    <!--<div v-if='$store.state.isAdmin && $store.state.opas' class="col-sm-2 col-md-3 col-lg-4"></div>
+                    <div v-if='$store.state.isAdmin && $store.state.opas' class="col-sm-8 col-md-6 col-lg-4 menubtn">
+                        <button class='btn btn-primary btn-block' @click="goReservation()"><fa icon="credit-card" />&ensp;OPAS</button>
+                    </div>-->
+
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
                     <div v-if='$store.state.isAdmin' class="col-sm-2 col-md-3 col-lg-4"></div>
                     <div v-if='$store.state.isAdmin' class="col-sm-8 col-md-6 col-lg-4 menubtn">
                         <button class='btn btn-primary btn-block' @click="goConfig()"><fa icon="cog" />&ensp;{{ $t("Config") }}</button>
@@ -76,7 +98,11 @@
     import Menu from '@/components/Menu.vue'
     import { db } from "../main";
     import { format } from 'date-fns'
+<<<<<<< HEAD
     import { ja, enUS, zhCN, zhTW, ru, de, fr, nl, es, pt, it, arSA, ko, sr, cs, ro, hr, sv, sk } from 'date-fns/locale'
+=======
+    import ja from 'date-fns/locale/ja'
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 
     export default {
         name: 'Main',
@@ -114,10 +140,60 @@
             firebase.auth().onAuthStateChanged(user => {
                 this.isLogin = true;
                 this.loginUser = user;
+<<<<<<< HEAD
             });
             this.getEntryNum();
             this.getDailyMessage();
             this.setLanguage();   
+=======
+                //this.admin = true
+                /*
+                db.collection("members").where("userUid", "==", this.loginUser.uid)
+                    .get()
+                    .then((querySnapshot) => {
+                        var d
+                        querySnapshot.forEach((doc) => {
+                            d = doc.data()
+                            d.id = doc.id
+                            this.admin = d.admin
+                        });
+                        
+                        if (d.config) {
+                            // configを読んで
+                            var docRef = db.collection("configs").doc(d.config);
+                            docRef.get().then((doc) => {
+                                if (doc.exists) {
+                                    // Storeに値をセット
+                                    this.$store.commit('setName', doc.data().name)
+                                    this.$store.commit('setTopTitle', doc.data().topTitle)
+                                    this.$store.commit('setOfficialUrl', doc.data().officialUrl)
+                                    this.$store.commit('setOfficialTitle', doc.data().officiaTitle)
+                                    this.$store.commit('setConfig', d.config)
+                                } else {
+                                    // doc.data() will be undefined in this case
+                                    console.log("No such document!", d.config);
+                                    // 設定データがなければ
+                                }
+                            }).catch((error) => {
+                                console.log("Error getting document:", error);
+                            });
+                        } else {
+                            // メンバーに設定フィールドがなければ
+                        }
+                        // メンバーとリンクしてなければメンバーリンク画面へ
+                        if (querySnapshot.empty) {
+                            this.$router.push(`/memberLink`);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("Error getting documents: ", error);
+                });
+                */
+            });
+            this.getEntryNum();
+            this.getDailyMessage();
+            //this.setLanguage();   
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         },
         methods: {
             goMember: function() {
@@ -126,6 +202,7 @@
             goCourt: function() {
                 this.$router.push({ name: 'court' });
             },
+<<<<<<< HEAD
             goCourtEntries: function() {
                 this.$router.push({ name: 'courtentries', params: { id: this.today } });
             },
@@ -136,6 +213,8 @@
             goIndividual: function() {
                 this.$router.push({ name: 'individual', params: { id: this.today } });
             },
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             goAnalysis: function() {
                 this.getLastAttendance();
             },
@@ -145,9 +224,12 @@
             goReservation: function() {
                 this.$router.push({ name: 'reservation' });
             },
+<<<<<<< HEAD
             goMessages: function() {
                 this.$router.push({ name: 'messages', params: { id: this.today } });
             },
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             goChat: function() {
                 this.$router.push({ name: 'chat' });
             },
@@ -285,6 +367,7 @@
             },
             setLanguage: function() {
                 const lg = navigator.language
+<<<<<<< HEAD
                 console.log(lg)
                 //this.$i18n.locale = lg
                 switch (lg) {
@@ -368,6 +451,70 @@
                         this.locale = ja;
                         this.$i18n.locale = "ja"
                 }               
+=======
+                //this.$i18n.locale = navigator.language
+                switch (lg) {
+                    case "en-US":
+                        this.$i18n.locale = "en"
+                        break;
+                    case "ja":
+                        this.$i18n.locale = "ja"
+                        break;
+                    case "zh-CN":
+                        this.$i18n.locale = "zhCN"
+                        break;
+                    case "zh-TW":
+                        this.$i18n.locale = "zhTW"
+                        break;
+                    case "ru-RU":
+                        this.$i18n.locale = "ru"
+                        break;
+                    case "de":
+                        this.$i18n.locale = "de"
+                        break;
+                    case "fr":
+                        this.$i18n.locale = "fr"
+                        break;
+                    case "nl":
+                        this.$i18n.locale = "nl"
+                        break;
+                    case "es-ES":
+                        this.$i18n.locale = "es"
+                        break;
+                    case "pt-PT":
+                        this.$i18n.locale = "pt"
+                        break;
+                    case "it-IT":
+                        this.$i18n.locale = "it"
+                        break;
+                    case "ar":
+                        this.$i18n.locale = "ar"
+                        break;
+                    case "ko-KR":
+                        this.$i18n.locale = "ko"
+                        break;
+                    case "sr-RS":
+                        this.$i18n.locale = "sr"
+                        break;
+                    case "cs":
+                        this.$i18n.locale = "cs"
+                        break;
+                    case "ro-RO":
+                        this.$i18n.locale = "ro"
+                        break;
+                    case "hr":
+                        this.$i18n.locale = "hr"
+                        break;
+                    case "sv-SE":
+                        this.$i18n.locale = "sv"
+                        break;
+                    case "sk":
+                        this.$i18n.locale = "sk"
+                        break;
+                    default:
+                        this.$i18n.locale = "en"
+                } 
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
             }
         }
     }

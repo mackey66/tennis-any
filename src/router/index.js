@@ -18,11 +18,14 @@ import GameFinished from '../views/GameFinished.vue'
 import Court from '../views/Court.vue'
 import CourtSelect from '../views/CourtSelect.vue'
 import CourtChange from '../views/CourtChange.vue'
+<<<<<<< HEAD
 import CourtDaily from '../views/CourtDaily.vue'
 import CourtEntries from '../views/CourtEntries.vue'
 import CourtEntriesSelect from '../views/CourtEntriesSelect.vue'
 import CourtLottery from '../views/CourtLottery.vue'
 import Individual from '../views/Individual.vue'
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 import MemberSelect from '../views/MemberSelect.vue'
 import MemberEdit from '../views/MemberEdit.vue'
 import Schedule from '../views/Schedule.vue'
@@ -39,7 +42,10 @@ import ConfigSelect from '../views/ConfigSelect.vue'
 import Opas from '../views/Opas.vue'
 import AnalysisIndividual from '../views/AnalysisIndividual.vue'
 import Privacy from '../views/Privacy.vue'
+<<<<<<< HEAD
 import Messages from '../views/Messages.vue'
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
 
 // Firebase読み込み
 import firebase from 'firebase'
@@ -167,6 +173,7 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
+<<<<<<< HEAD
         // 今日のコート
         path: '/courtdaily/:id',
         name: 'courtdaily',
@@ -202,6 +209,8 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         // 集計（エントリー）
         path: '/analysis/:id',
         name: 'analysis',
@@ -230,6 +239,7 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
+<<<<<<< HEAD
         // メッセージ
         path: '/messages/:id',
         name: 'messages',
@@ -237,6 +247,8 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
         // チャット
         path: '/chat',
         name: 'chat',

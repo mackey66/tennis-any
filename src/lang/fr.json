@@ -91,7 +91,11 @@
 
     "Cannot be left blank." : "Ne peut être laissé en blanc",
     "Link" : "Lien",
+<<<<<<< HEAD
     "Please press the link button with your name" : "Veuillez établir un lien avec un membre",
+=======
+    "Please link to a member" : "Veuillez établir un lien avec un membre",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "If you do not see your name below, please contact the administrator." : "Si vous ne voyez pas votre nom ci-dessous, veuillez contacter l'administrateur.",
     "I linked to it" : "J'ai lié",
     "Time" : "Temps",

@@ -1,7 +1,11 @@
 {
   "name": "tennis",
+<<<<<<< HEAD
   "version": "0.2.0",
   "license": "UNLICENSED",
+=======
+  "version": "0.1.0",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,33 +19,53 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^3.0.0-4",
     "@riversun/sortable-table": "^1.1.2",
+<<<<<<< HEAD
     "axios": "^1.4.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "crypto-js": "^4.1.1",
+=======
+    "bootstrap-vue": "^2.21.2",
+    "chart.js": "^3.4.0",
+    "core-js": "^3.6.5",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "date-fns": "^2.22.1",
     "firebase": "^8.6.7",
     "firebaseui": "^4.8.0",
     "firebaseui-ja": "^1.0.0",
+<<<<<<< HEAD
     "japanese-holidays": "^1.0.10",
     "vue": "^3.0.0",
     "vue-awesome": "^4.3.1",
     "vue-i18n": "^9.1.7",
     "vue-month-picker": "^1.7.2",
+=======
+    "vue": "^3.0.0",
+    "vue-awesome": "^4.3.1",
+    "vue-chartjs": "^3.5.1",
+    "vue-i18n": "^9.1.7",
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "vue-nl2br": "^0.1.2",
     "vue-router": "^4.0.0-0",
     "vue3-chart-v2": "^0.8.2",
     "vue3-datepicker": "^0.2.4",
     "vue3-nl2br": "^0.1.5",
+<<<<<<< HEAD
     "vue3-persian-datetime-picker": "^1.2.2",
+=======
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
     "vue3-timepicker": "^1.0.0-beta.2",
     "vuedraggable": "^4.0.3",
     "vuejs-datepicker": "^1.6.2",
     "vuejs-dialog": "^1.4.2",
     "vuex": "^4.0.0-0",
+<<<<<<< HEAD
     "vuex-persistedstate": "^4.0.0-beta.3",
     "xlsx": "^0.18.5",
     "xlsx-js-style": "^1.2.0"
+=======
+    "vuex-persistedstate": "^4.0.0-beta.3"
+>>>>>>> 5c3e9f6dacee420def3ccbc590456f487c55b3a9
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
